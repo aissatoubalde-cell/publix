@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Publix 360, agence de publicité et de marketing à Conakry : communication globale à 360°.">
+<link rel="icon" href="img/logo.png">
+<title>Publix 360°</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&family=Caveat:wght@600&display=swap">
+<style>
+/* Layout : barre contact, menu en pilule, hero titre + portrait avec vague, bande de 6 services, "À propos" clair + panneau sombre, cartes réalisations, section newsletter, pied avec liens. Le doré du modèle est remplacé par le dégradé orange-rouge du logo, avec le bleu en second. */
+:root{
+  --ink:#050608;
+  --ink-2:#0C0E13;
+  --ink-3:#151923;
+  --line:#2A2F3A;
+  --paper:#F5F6F8;
+  --muted:#A4ACBA;
+  --sand:#FFF4E8;
+  --sand-2:#FFDDB8;
+  --ink-on-sand:#1A1206;
+  --blue:#1A7BF0;
+  --blue-deep:#0B49B8;
+  --red:#F2281C;
+  --orange:#FF9100;
+  --amber:#FF9100;
+  --heat:linear-gradient(100deg,var(--red) 0%,#FF5A12 45%,var(--orange) 100%);
+  --cool:linear-gradient(120deg,#2EA2FF 0%,var(--blue) 50%,var(--blue-deep) 100%);
+  --sky:#EAF3FF;
+  --sky-2:#C9DFFF;
+  --ink-on-sky:#061126;
+  --f-display:"Playfair Display",Georgia,"Times New Roman",serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-script:"Caveat","Brush Script MT",cursive;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ink)}
+a{color:inherit}
+img,video{max-width:100%;display:block}
+figure{margin:0}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;margin:0;line-height:1.1;text-wrap:balance}
+p{margin:0}
+.it{font-style:italic;background:var(--heat);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+.underline{display:block;width:150px;height:8px;margin-top:14px}
+svg.ic{width:20px;height:20px;flex:none}
+
+/* boutons */
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.95rem;padding:13px 26px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;font-family:var(--f-body);transition:transform .2s ease,box-shadow .2s ease,background .2s}
+.btn-hot{background:var(--heat);color:#fff;box-shadow:0 10px 26px -12px rgba(242,40,28,.9)}
+.btn-hot:hover{transform:translateY(-2px)}
+.btn-line{color:var(--paper);border:1.5px solid var(--blue);background:transparent}
+.btn-line:hover{background:rgba(26,123,240,.15)}
+.btn-dark{background:var(--cool);color:#fff}
+.btn svg{width:16px;height:16px}
+
+/* barre du haut */
+.topbar{border-bottom:1px solid var(--line);font-size:.86rem;color:#D7DCE4}
+.topbar .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 28px;padding-block:10px}
+.topbar .group{display:flex;flex-wrap:wrap;gap:8px 28px}
+.topbar span{display:inline-flex;align-items:center;gap:9px}
+.topbar svg{width:16px;height:16px;color:var(--blue)}
+.topbar .todo{color:var(--muted);font-style:italic}
+@media (max-width:700px){.topbar{display:none}}
+
+/* menu */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(5,6,8,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(26,123,240,.35)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:10px}
+.brand{display:flex;align-items:flex-end;gap:12px;text-decoration:none}
+.brand img{height:52px;width:auto}
+.brand em{font-family:var(--f-display);font-size:.86rem;color:var(--blue);white-space:nowrap;padding-bottom:4px}
+.menu{display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0}
+.menu a{display:block;text-decoration:none;font-weight:600;font-size:.9rem;padding:8px 14px;border-radius:999px;color:#E2E6EC}
+.menu a:hover{color:#fff}
+.menu a.on{background:var(--cool);color:#fff}
+.menu a{padding:9px 13px;font-size:.88rem;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.menu a.on{padding:9px 20px;box-shadow:0 6px 18px -8px rgba(26,123,240,.9)}
+.menu .chev{width:13px;height:13px;transition:transform .2s}
+.has-sub{position:relative}
+.has-sub:hover .chev,.has-sub:focus-within .chev{transform:rotate(180deg)}
+.sub{position:absolute;left:50%;top:100%;transform:translate(-50%,6px);min-width:230px;list-style:none;margin:0;padding:8px;background:var(--ink-2);border:1px solid rgba(26,123,240,.5);border-radius:14px;box-shadow:0 20px 40px rgba(0,0,0,.6);opacity:0;visibility:hidden;transition:opacity .18s,transform .18s}
+.sub::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.has-sub:hover .sub,.has-sub:focus-within .sub{opacity:1;visibility:visible;transform:translate(-50%,10px)}
+.sub a{display:block;padding:10px 14px;border-radius:10px;font-size:.86rem}
+.sub a:hover{background:var(--ink-3);color:var(--blue)}
+.nav .wrap{max-width:1280px}
+.brand{align-items:flex-end;gap:10px;flex:none}
+.brand em{font-style:italic;font-size:.82rem}
+.nav-end{display:flex;align-items:center;gap:10px}
+.burger{position:relative;display:none}
+.burger summary{list-style:none;cursor:pointer;width:44px;height:44px;display:grid;place-items:center;border:1.5px solid var(--line);border-radius:12px}
+.burger summary::-webkit-details-marker{display:none}
+.burger summary svg{width:22px;height:22px}
+.drawer{position:absolute;right:0;top:52px;min-width:220px;background:var(--ink-2);border:1px solid rgba(26,123,240,.5);border-radius:16px;padding:8px;display:flex;flex-direction:column;box-shadow:0 20px 40px rgba(0,0,0,.6)}
+.drawer a{text-decoration:none;font-weight:600;padding:11px 14px;border-radius:10px}
+.drawer a:hover{background:var(--ink-3);color:var(--blue)}
+@media (max-width:1240px){.brand{flex-direction:column;align-items:flex-start;gap:2px}.brand img{height:40px}.brand em{font-size:.72rem;padding-bottom:0}.menu a{padding:8px 9px;font-size:.84rem}.menu a.on{padding:8px 14px}}
+@media (max-width:1060px){.nav .btn{padding:10px 16px;font-size:.84rem}.menu a{padding:7px 7px;font-size:.8rem}}
+@media (max-width:940px){.menu{display:none}.burger{display:block}}
+.nav .btn{white-space:nowrap}
+@media (max-width:480px){.nav .btn{padding:10px 14px;font-size:.8rem}.nav .btn svg{display:none}.brand img{height:34px}.brand em{display:none}.nav .wrap{gap:10px}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(80% 90% at 72% 30%,#0A1A3A 0%,var(--ink) 65%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;min-height:min(560px,80vw)}
+.hero-copy{display:flex;flex-direction:column;gap:26px;padding-block:72px 120px;position:relative;z-index:3;min-width:0}
+.hero h1{font-size:clamp(2.4rem,5.4vw,4.3rem);font-weight:500;letter-spacing:-.01em}
+.hero p{font-size:clamp(1rem,1.5vw,1.15rem);color:#DDE2EA;max-width:46ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+.hero-art{position:relative;align-self:center;aspect-ratio:1;width:100%;max-width:520px;justify-self:center;margin-block:40px 90px;min-width:0;z-index:1}
+.hero-art img{position:absolute;inset:7%;width:86%;height:86%;object-fit:contain;z-index:2}
+.orbit{position:absolute;inset:0;border-radius:50%;border:1px dashed #2A3342}
+.orbit.o2{inset:12%;border:1px solid #1B2230}
+.orbit .dot{position:absolute;width:12px;height:12px;border-radius:50%;top:-6px;left:calc(50% - 6px);background:var(--orange);box-shadow:0 0 18px var(--orange),0 0 40px var(--red)}
+.orbit.o2 .dot{background:var(--blue);box-shadow:0 0 18px var(--blue);width:9px;height:9px;top:-4.5px;left:calc(50% - 4.5px)}
+.halo{position:absolute;inset:-12%;border-radius:50%;background:radial-gradient(closest-side,rgba(26,123,240,.32),rgba(26,123,240,.08) 60%,transparent 75%);z-index:0}
+.halo.h2{inset:20% -4% -8% 30%;background:radial-gradient(closest-side,rgba(242,40,28,.22),transparent 70%)}
+@media (prefers-reduced-motion:no-preference){
+  .orbit{animation:spin 26s linear infinite}
+  .orbit.o2{animation-duration:18s;animation-direction:reverse}
+  .halo{animation:breathe 6s ease-in-out infinite}
+  .halo.h2{animation-delay:-3s}
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes breathe{50%{opacity:.55;transform:scale(1.05)}}
+.swoosh{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:auto;z-index:2;pointer-events:none}
+.glow-arc{position:absolute;left:-220px;top:-40px;width:420px;height:620px;border-radius:50%;border:2px solid rgba(26,123,240,.35);border-left-color:transparent;border-bottom-color:transparent;pointer-events:none}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;min-height:0}
+  .hero-art{max-width:380px;order:-1;margin-block:32px 0}
+  .hero-copy{padding-block:0 96px}
+}
+
+/* bande services */
+.services{background:var(--ink)}
+.services ul{list-style:none;margin:0;padding:22px 0 30px;display:grid;grid-template-columns:repeat(6,1fr)}
+.services li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:10px 14px;border-left:1.5px solid rgba(26,123,240,.55);min-width:0}
+.services li:first-child{border-left:0}
+.services svg{width:42px;height:42px;color:var(--blue)}
+.services li:nth-child(even) svg{color:var(--red)}
+.services h3{font-size:1.02rem;line-height:1.25}
+.services p{font-size:.84rem;color:var(--muted);line-height:1.4}
+@media (max-width:1000px){
+  .services ul{grid-template-columns:repeat(3,1fr);row-gap:22px}
+  .services li:nth-child(4){border-left:0}
+}
+@media (max-width:560px){
+  .services ul{grid-template-columns:repeat(2,1fr)}
+  .services li:nth-child(4){border-left:1.5px solid rgba(26,123,240,.55)}
+  .services li:nth-child(odd){border-left:0}
+}
+
+/* à propos */
+.about{position:relative;overflow:hidden;background:linear-gradient(100deg,#FFFFFF 0%,var(--sky) 45%,var(--sky-2) 100%);color:var(--ink-on-sky);border-block:2px solid var(--blue)}
+.about .wrap{display:grid;grid-template-columns:.9fr 1.15fr .85fr;gap:32px;align-items:center;padding-block:22px}
+.about-img{border-radius:26px;overflow:hidden;box-shadow:0 18px 40px -20px rgba(6,17,38,.55);min-width:0;aspect-ratio:4/3}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-copy{display:flex;flex-direction:column;gap:14px;min-width:0;padding-block:20px}
+.about-copy h2{font-size:clamp(1.7rem,3vw,2.2rem);color:var(--ink-on-sky)}
+.about-copy p{font-family:var(--f-display);font-size:1.02rem;line-height:1.55;color:#1E2A40;max-width:48ch}
+.about-copy .btn{align-self:flex-start;margin-top:6px}
+.values{position:relative;align-self:stretch;margin-block:-22px;margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));background:var(--ink);color:var(--paper);border-radius:120px 0 0 0;display:flex;flex-direction:column;justify-content:center;gap:20px;padding:36px 28px 36px 44px;min-width:0}
+.values::after{content:"";position:absolute;right:-30px;bottom:-30px;width:220px;height:140px;border-radius:50%;border-top:3px solid var(--red);transform:rotate(-24deg);opacity:.8}
+.values .lbl{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.value{display:flex;align-items:center;gap:16px;font-family:var(--f-display);font-size:1.18rem}
+.value svg{width:32px;height:32px;color:var(--blue);flex:none}
+.value:nth-of-type(odd) svg{color:var(--red)}
+.value small{display:block;font-family:var(--f-body);font-size:.8rem;color:var(--muted);line-height:1.3}
+@media (max-width:1000px){
+  .about .wrap{grid-template-columns:1fr 1fr}
+  .values{grid-column:1/-1;margin:0 calc(-1 * max(16px,env(safe-area-inset-right,0px))) -22px calc(-1 * max(16px,env(safe-area-inset-left,0px)));border-radius:60px 60px 0 0;display:grid;grid-template-columns:repeat(2,1fr);padding:32px max(16px,env(safe-area-inset-right,0px)) 32px max(16px,env(safe-area-inset-left,0px))}
+  .values .lbl{grid-column:1/-1}
+}
+@media (max-width:640px){
+  .about .wrap{grid-template-columns:1fr}
+  .values{grid-template-columns:1fr}
+}
+
+/* réalisations */
+.events{padding-block:40px 64px}
+.title-rule{display:flex;align-items:center;justify-content:center;gap:22px;margin-bottom:30px;text-align:center}
+.title-rule::before,.title-rule::after{content:"";flex:1;max-width:140px;height:1.5px;background:linear-gradient(90deg,transparent,var(--red))}
+.title-rule::after{transform:scaleX(-1)}
+.title-rule h2{font-size:clamp(1.6rem,3.2vw,2.3rem);color:var(--paper)}
+.title-rule h2 em{font-style:italic;color:var(--blue)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{display:grid;grid-template-columns:44% 1fr;border:1.5px solid rgba(26,123,240,.6);border-radius:14px;overflow:hidden;background:var(--ink-2);min-width:0;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--red);transform:translateY(-3px)}
+.card .thumb{position:relative;min-height:150px}
+.card .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card .body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.card h3{font-size:1.08rem}
+.card p{font-size:.88rem;color:#C7CEDA;line-height:1.45}
+.card .more{margin-top:auto;padding-top:10px;display:inline-flex;align-items:center;gap:8px;font-size:.86rem;font-weight:700;color:var(--amber);background:none;border:0;cursor:pointer;font-family:inherit;padding-left:0;text-decoration:none}
+.card .more svg{width:15px;height:15px}
+.play{position:absolute;inset:0;margin:auto;width:52px;height:52px;border-radius:50%;background:var(--heat);display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.5)}
+.play svg{width:20px;height:20px;color:#fff;margin-left:3px}
+@media (max-width:1060px){.cards{grid-template-columns:1fr 1fr}}
+@media (max-width:680px){.cards{grid-template-columns:1fr}}
+
+/* actualités */
+.news-sec{background:var(--ink-2);border-block:1px solid var(--line);padding-block:56px 64px}
+.post{display:grid;grid-template-columns:1.1fr 1fr;gap:0;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--ink)}
+.post-img{min-height:300px;position:relative;min-width:0}
+.post-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.post-body{padding:32px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.post-body .date{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);font-weight:700}
+.post-body h3{font-size:clamp(1.4rem,2.6vw,1.9rem)}
+.post-body p{color:#C7CEDA;max-width:58ch}
+.post-body .btn{align-self:flex-start;margin-top:6px}
+.post-note{margin-top:16px;font-size:.88rem;color:var(--muted);text-align:center}
+@media (max-width:820px){.post{grid-template-columns:1fr}.post-img{min-height:220px}}
+
+/* galerie */
+.gallery-sec{padding-block:56px 72px}
+.gallery-sub{text-align:center;color:var(--muted);margin:-14px auto 30px;max-width:52ch}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:14px;perspective:1200px}
+.gallery .wide{grid-column:span 2}
+.gallery .tall{grid-row:span 2}
+.g-item{position:relative;border-radius:16px;overflow:hidden;min-width:0;cursor:zoom-in;padding:0;border:0;background:var(--ink-3);font:inherit;color:inherit;text-align:left;isolation:isolate;transform-style:preserve-3d;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s;box-shadow:0 0 0 1px var(--line)}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .5s}
+/* voile aux couleurs du logo */
+.g-item::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,rgba(26,123,240,.0) 30%,rgba(11,73,184,.55) 70%,rgba(242,40,28,.65) 100%);opacity:.35;transition:opacity .45s}
+/* reflet lumineux qui balaie */
+.g-item::after{content:"";position:absolute;top:-50%;bottom:-50%;width:40%;left:-60%;z-index:2;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-18deg);pointer-events:none}
+.g-cap{position:absolute;left:14px;right:14px;bottom:12px;z-index:3;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.g-cap b{font-family:var(--f-display);font-size:1.02rem;font-weight:600;text-shadow:0 2px 10px rgba(0,0,0,.7)}
+.g-cap small{display:block;font-family:var(--f-body);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700;text-shadow:none;opacity:0;transform:translateY(6px);transition:all .4s}
+.g-zoom{width:38px;height:38px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--heat);color:#fff;opacity:0;transform:scale(.6) rotate(-45deg);transition:all .4s cubic-bezier(.3,1.6,.5,1)}
+.g-zoom svg{width:18px;height:18px}
+.g-item:hover,.g-item:focus-visible{box-shadow:0 0 0 2px var(--blue),0 24px 50px -20px rgba(26,123,240,.75)}
+.g-item:hover img,.g-item:focus-visible img{transform:scale(1.09);filter:saturate(1.15) contrast(1.05)}
+.g-item:hover::before,.g-item:focus-visible::before{opacity:1}
+.g-item:hover::after,.g-item:focus-visible::after{left:130%;transition:left .9s ease}
+.g-item:hover .g-cap small,.g-item:focus-visible .g-cap small{opacity:1;transform:none}
+.g-item:hover .g-zoom,.g-item:focus-visible .g-zoom{opacity:1;transform:none}
+/* apparition au défilement : seuls les éléments encore hors écran sont préparés */
+.g-item.pre{opacity:0;transform:translateY(40px) scale(.94) rotateX(8deg)}
+.g-item.show{animation:gIn .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}
+@keyframes gIn{from{opacity:0;transform:translateY(40px) scale(.94) rotateX(8deg)}to{opacity:1;transform:none}}
+@media (max-width:900px){.gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}.g-cap small,.g-zoom{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.g-item,.g-item img,.g-item::after{transition:none!important}.g-item.show{animation:none}.g-item.pre{opacity:1;transform:none}}
+
+/* visionneuse */
+.lb{position:fixed;inset:0;z-index:60;background:rgba(3,4,7,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:grid;grid-template-rows:auto 1fr auto;padding:max(14px,env(safe-area-inset-top,0px)) max(14px,env(safe-area-inset-right,0px)) max(14px,env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));animation:lbIn .3s ease}
+@keyframes lbIn{from{opacity:0}}
+.lb-top{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);font-variant-numeric:tabular-nums;font-weight:600}
+.lb-stage{position:relative;display:grid;place-items:center;min-height:0;overflow:hidden}
+.lb-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.7);animation:lbImg .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes lbImg{from{opacity:0;transform:scale(.94)}}
+.lb-cap{text-align:center;padding-top:12px;font-family:var(--f-display);font-size:1.1rem}
+.lb-btn{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);background:rgba(12,14,19,.8);color:#fff;display:grid;place-items:center;cursor:pointer;transition:all .2s}
+.lb-btn:hover{border-color:var(--blue);background:var(--blue)}
+.lb-btn svg{width:20px;height:20px}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);z-index:2}
+.lb-prev{left:6px}.lb-next{right:6px}
+.lb-dots{display:flex;justify-content:center;gap:6px;padding-top:10px}
+.lb-dots i{width:7px;height:7px;border-radius:50%;background:#3A4150;transition:all .3s}
+.lb-dots i.on{width:22px;border-radius:4px;background:var(--heat)}
+
+/* partenaires */
+.partners{padding-block:56px 64px;border-top:1px solid var(--line);background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%)}
+.partners-sub{text-align:center;color:var(--muted);margin:-14px auto 34px;max-width:54ch}
+.marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.track{display:flex;gap:18px;width:max-content;padding-block:8px}
+@media (prefers-reduced-motion:no-preference){.track{animation:slide 38s linear infinite}.marquee:hover .track{animation-play-state:paused}}
+@keyframes slide{to{transform:translateX(calc(-50% - 9px))}}
+.p-logo{flex:none;box-sizing:border-box;width:200px;height:104px;overflow:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;padding:14px 24px;background:#F5F7FB;border:1px solid var(--line);transition:border-color .3s,transform .3s,box-shadow .3s}
+.p-logo img{display:block;width:100%;height:100%;min-height:0;object-fit:contain;filter:grayscale(1);opacity:.7;transition:filter .3s,opacity .3s}
+.p-logo:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 16px 34px -18px rgba(26,123,240,.8)}
+.p-logo:hover img{filter:none;opacity:1}
+.p-logo.empty{border-style:dashed;border-color:#2F3746;color:#5B6576;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;gap:6px;text-align:center}
+.p-logo.empty svg{width:26px;height:26px;color:#3A4558}
+.p-logo.empty:hover{color:var(--blue)}
+.p-logo.empty:hover svg{color:var(--blue)}
+.track.static{width:auto;justify-content:center;flex-wrap:wrap;animation:none!important;padding-inline:16px}
+.marquee:has(.static){-webkit-mask-image:none;mask-image:none}
+.p-cta{margin-top:30px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 22px;text-align:center}
+.p-cta p{color:#C9D1DE;font-weight:600}
+
+/* vidéo */
+.card .thumb:has(.play){cursor:pointer}
+.feature-vid{margin-top:28px;display:grid;grid-template-columns:1.5fr 1fr;gap:0;border-radius:22px;overflow:hidden;border:1.5px solid rgba(26,123,240,.55);background:var(--ink-2);box-shadow:0 30px 60px -34px rgba(26,123,240,.6)}
+.fv-player{background:#000;min-width:0;aspect-ratio:16/9}
+.fv-player video{width:100%;height:100%;object-fit:cover;background:#000}
+.fv-copy{padding:32px;display:flex;flex-direction:column;justify-content:center;gap:14px;min-width:0;background:radial-gradient(90% 90% at 100% 0%,rgba(242,40,28,.14),transparent 70%)}
+.fv-tag{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.fv-tag svg{width:12px;height:12px}
+.fv-copy h3{font-size:clamp(1.3rem,2.4vw,1.8rem)}
+.fv-copy p{color:#C7CEDA}
+.fv-copy .btn{align-self:flex-start;margin-top:6px}
+@media (max-width:900px){.feature-vid{grid-template-columns:1fr}.fv-copy{padding:24px}}
+
+/* contact */
+.contact{background:var(--ink-2);border-top:1px solid var(--line);padding-block:64px}
+.contact .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px}
+.contact h2{font-size:clamp(1.7rem,3vw,2.3rem)}
+.contact-info{display:flex;flex-direction:column;gap:18px;min-width:0}
+.contact-info .row{display:flex;gap:14px;align-items:center;color:#DDE2EA}
+.contact-info .row svg{color:var(--blue);width:20px;height:20px}
+.contact-info .row a,.topbar a{text-decoration:none}
+.contact-info .row a:hover,.topbar a:hover{color:var(--blue)}
+.contact-info .wa{align-self:flex-start;margin-top:4px}
+.contact-info .wa svg{width:18px;height:18px;color:#25D366}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px;min-width:0}
+form .full{grid-column:1/-1}
+label{display:flex;flex-direction:column;gap:6px;font-size:.84rem;font-weight:600;color:#C9D1DE;min-width:0}
+input,select,textarea{font:inherit;font-weight:500;color:var(--paper);background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(26,123,240,.22)}
+textarea{min-height:110px;resize:vertical}
+.msg{font-size:.9rem;color:var(--amber);font-weight:600}
+@media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
+@media (max-width:520px){form{grid-template-columns:1fr}}
+
+/* pied */
+.foot{border-top:1.5px solid rgba(26,123,240,.5)}
+.foot .wrap{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center;padding-block:30px}
+.foot-brand{display:flex;flex-direction:column;gap:6px;padding-right:32px;border-right:1.5px solid rgba(26,123,240,.55)}
+.foot-brand img{height:62px;width:auto}
+.foot-brand em{font-family:var(--f-display);color:var(--blue);font-size:.92rem}
+.foot-links{display:flex;flex-wrap:wrap;gap:8px 26px;list-style:none;margin:0;padding:0;font-weight:600;font-size:.9rem}
+.foot-links a{text-decoration:none;color:#C9D1DE}
+.foot-links a:hover{color:var(--blue)}
+.foot-cta{justify-self:end}
+@media (max-width:900px){.foot-cta{justify-self:start}}
+
+/* newsletter */
+.nlsec{position:relative;overflow:hidden;padding-block:72px;background:radial-gradient(70% 120% at 100% 0%,#0A1A3A 0%,transparent 60%),radial-gradient(50% 90% at 0% 100%,rgba(242,40,28,.16) 0%,transparent 70%),var(--ink)}
+.nlsec::before{content:"";position:absolute;right:-160px;top:-160px;width:460px;height:460px;border-radius:50%;border:2px dashed rgba(26,123,240,.35);pointer-events:none}
+.nlsec::after{content:"";position:absolute;right:-90px;top:-90px;width:320px;height:320px;border-radius:50%;border:34px solid transparent;border-bottom-color:rgba(255,145,0,.5);border-left-color:rgba(242,40,28,.45);pointer-events:none}
+.nlsec .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,72px);align-items:center}
+.nl-copy{display:flex;flex-direction:column;gap:18px;min-width:0}
+.nl-copy .eyebrow{font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--red)}
+.nl-copy h2{font-size:clamp(1.9rem,4vw,3rem)}
+.nl-copy p{color:#C9D1DE;max-width:48ch;font-size:1.04rem}
+.perks{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
+.perks li{display:flex;gap:14px;align-items:flex-start}
+.perks svg{width:22px;height:22px;flex:none;color:var(--blue);margin-top:2px}
+.perks li:nth-child(2) svg{color:var(--red)}
+.perks li:nth-child(3) svg{color:var(--orange)}
+.perks b{display:block;font-weight:700}
+.perks span{color:var(--muted);font-size:.92rem}
+.nl-card{background:var(--ink-2);border:1.5px solid rgba(26,123,240,.55);border-radius:24px;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:16px;box-shadow:0 30px 60px -30px rgba(26,123,240,.45);min-width:0}
+.nl-card h3{grid-column:1/-1;font-size:1.35rem;display:flex;align-items:center;gap:12px}
+.nl-card h3 svg{width:28px;height:28px;color:var(--blue)}
+.nl-card .full{grid-column:1/-1}
+.nl-card fieldset{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;min-width:0}
+.nl-card legend{font-size:.84rem;font-weight:600;color:#C9D1DE;margin-bottom:8px;padding:0}
+.pick{position:relative}
+.pick input{position:absolute;opacity:0;inset:0;cursor:pointer;width:100%;height:100%;margin:0}
+.pick span{display:inline-block;padding:8px 14px;border-radius:999px;border:1px solid var(--line);font-size:.84rem;font-weight:600;color:#C9D1DE;transition:all .15s}
+.pick input:checked+span{background:var(--cool);border-color:transparent;color:#fff}
+.pick input:focus-visible+span{outline:2px solid var(--orange);outline-offset:2px}
+.nl-card .btn{width:100%;justify-content:center}
+.nl-card small{color:var(--muted);font-size:.8rem;line-height:1.45}
+@media (max-width:900px){.nlsec .wrap{grid-template-columns:1fr}}
+@media (max-width:520px){.nl-card{grid-template-columns:1fr;padding:22px}}
+.legal{border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+.legal .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding-block:16px}
+@media (max-width:900px){
+  .foot .wrap{grid-template-columns:1fr}
+  .foot-brand{border-right:0;padding-right:0;align-items:flex-start}
+}
+</style>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="group">
+      <span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><a href="tel:+224628223174">+224 628 22 31 74</a></span>
+      <span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4 7.3V17h16V7.3z"/></svg><a href="mailto:publix360bh@gmail.com">publix360bh@gmail.com</a></span>
+      <span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4.5A2.5 2.5 0 1 0 12 11.5 2.5 2.5 0 0 0 12 6.5z"/></svg>Nongo, Ratoma – Conakry, Guinée</span>
+    </div>
+    <span>Agence de publicité &amp; marketing</span>
+  </div>
+</div>
+
+<nav class="nav" aria-label="Navigation principale">
+  <div class="wrap">
+    <a class="brand" href="#accueil"><img src="img/logo.png" alt="Publix 360°"><em>Créer • Diffuser • Impacter</em></a>
+    <ul class="menu">
+      <li><a class="on" href="#accueil">Accueil</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li class="has-sub"><a href="#services">Nos services <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="sub">
+          <li><a href="#services">Stratégie de marque</a></li>
+          <li><a href="#services">Campagnes multicanales</a></li>
+          <li><a href="#services">Design graphique</a></li>
+          <li><a href="#services">Marketing digital</a></li>
+          <li><a href="#services">Événementiel &amp; terrain</a></li>
+          <li><a href="#services">Audiovisuel</a></li>
+        </ul>
+      </li>
+      <li><a href="#realisations">Nos réalisations</a></li>
+      <li><a href="#actualites">Actualités</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-end">
+    <details class="burger">
+      <summary aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+      <nav class="drawer" aria-label="Menu mobile">
+        <a href="#accueil">Accueil</a><a href="#apropos">À propos</a><a href="#services">Nos services</a><a href="#realisations">Nos réalisations</a><a href="#actualites">Actualités</a><a href="#galerie">Galerie</a><a href="#contact">Contact</a>
+      </nav>
+    </details>
+    <a class="btn btn-hot" href="#contact">Parlons projet <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="accueil">
+  <div class="glow-arc" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1>Faisons rayonner votre marque <span class="it">à 360°</span>
+        <svg class="underline" viewBox="0 0 150 8" aria-hidden="true"><defs><linearGradient id="ul" x1="0" x2="1"><stop offset="0" stop-color="#F2281C"/><stop offset="1" stop-color="#FF9100" stop-opacity="0"/></linearGradient></defs><path d="M2 6 Q60 0 148 3" stroke="url(#ul)" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+      </h1>
+      <p>Une agence de publicité et de marketing qui conçoit et déploie des campagnes de communication globale pour les entreprises, les institutions et les organisations.</p>
+      <div class="hero-cta">
+        <a class="btn btn-hot" href="#apropos">Découvrir notre mission <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-line" href="#services">Nos services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="halo"></div><div class="halo h2"></div>
+      <div class="orbit"><i class="dot"></i></div>
+      <div class="orbit o2"><i class="dot"></i></div>
+      <img src="img/logo.png" alt="">
+    </div>
+  </div>
+  <svg class="swoosh" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="sw1" x1="0" x2="1"><stop offset="0" stop-color="#F2281C" stop-opacity="0"/><stop offset=".5" stop-color="#F2281C"/><stop offset="1" stop-color="#FF9100"/></linearGradient>
+      <linearGradient id="sw2" x1="0" x2="1"><stop offset="0" stop-color="#1A7BF0" stop-opacity="0"/><stop offset="1" stop-color="#1A7BF0"/></linearGradient>
+    </defs>
+    <path d="M0 120 L0 92 C300 112 640 118 900 92 C1120 70 1300 36 1440 0 L1440 120 Z" fill="#050608"/>
+    <path d="M0 92 C300 112 640 118 900 92 C1120 70 1300 36 1440 0" fill="none" stroke="url(#sw1)" stroke-width="3"/>
+    <path d="M520 112 C820 112 1080 80 1440 22" fill="none" stroke="url(#sw2)" stroke-width="4" opacity=".9"/>
+  </svg>
+</header>
+
+<section class="services" id="services" aria-label="Nos services">
+  <div class="wrap">
+    <ul>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg><h3>Stratégie de marque</h3><p>Positionnement, identité, stratégie de communication</p></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg><h3>Campagnes multicanales</h3><p>Télévision, radio, presse, affichage, digital</p></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg><h3>Design graphique</h3><p>Affiches, flyers, supports de communication</p></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><rect x="5" y="12" width="3" height="6"/><rect x="10.5" y="8" width="3" height="10"/><rect x="16" y="4" width="3" height="14"/></svg><h3>Marketing digital</h3><p>Google Ads, Meta Ads, LinkedIn Ads</p></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20"/><path d="M4 20V10l8-6 8 6v10"/><path d="M4 10h16"/><path d="M9 20v-5h6v5"/></svg><h3>Événementiel &amp; terrain</h3><p>Activation de marque, dispositifs promotionnels</p></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg><h3>Audiovisuel</h3><p>Contenus visuels et multimédias</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="about" id="apropos">
+  <div class="wrap">
+    <div class="about-img"><img src="img/N.jpg" alt="L'équipe et les participantes réunies lors de la caravane" loading="lazy"></div>
+    <div class="about-copy">
+      <h2>À propos de nous
+        <svg class="underline" viewBox="0 0 150 8" aria-hidden="true"><path d="M2 6 Q60 0 148 3" stroke="#1A7BF0" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+      </h2>
+      <p>PUBLIX 360 accompagne les entreprises, les institutions et les organisations dans le développement de leur image de marque et la valorisation de leurs produits et services.</p>
+      <p><b>Notre mission :</b> transformer les idées en expériences de communication qui touchent les bonnes audiences et produisent des résultats concrets.</p>
+      <a class="btn btn-dark" href="#contact">Travailler avec nous <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="values">
+      <span class="lbl">Notre approche</span>
+      <div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><div>Comprendre<small>Besoins, objectifs, publics</small></div></div>
+      <div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg><div>Imaginer<small>Concepts créatifs et différenciants</small></div></div>
+      <div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14l16-9-5 16-3-6z"/><path d="M12 15l8-10"/></svg><div>Déployer<small>Les bons messages, les bons canaux</small></div></div>
+      <div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg><div>Mesurer<small>Résultats et optimisation</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="events" id="realisations">
+  <div class="wrap">
+    <div class="title-rule"><h2>Nos réalisations <em>phares</em></h2></div>
+    <div class="cards">
+      <article class="card">
+        <div class="thumb"><img src="img/BV.jpg" alt="Remise de kits Nutrilac sous le chapiteau" loading="lazy"></div>
+        <div class="body">
+          <h3>Caravane Nutrilac</h3>
+          <p>Animation, jeu « Achetez, scannez, gagnez ! » et remise de kits aux familles.</p>
+          <a class="more" href="#contact">Un projet similaire ? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb"><img src="img/C.jpg" alt="Ambassadrice Nutrilac offrant un sac à une maman et son bébé" loading="lazy"></div>
+        <div class="body">
+          <h3>Ambassadeurs de marque</h3>
+          <p>Équipes en tenue, sacs personnalisés et contact direct avec le public.</p>
+          <a class="more" href="#contact">Un projet similaire ? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb"><img src="img/poster.jpg" alt="Extrait du reportage vidéo Nutrilac" loading="lazy"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg></span></div>
+        <div class="body">
+          <h3>Reportage vidéo</h3>
+          <p>Témoignages et images de terrain, tournés et montés par notre équipe.</p>
+          <button class="more" type="button" id="openVid">Voir la vidéo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </article>
+    </div>
+    <div class="feature-vid">
+      <div class="fv-player">
+        <video id="vid" controls preload="metadata" poster="img/poster.jpg" playsinline><source src="img/video.mp4" type="video/mp4"></video>
+      </div>
+      <div class="fv-copy">
+        <span class="fv-tag"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>Vidéo · 46 s</span>
+        <h3>Reportage : la caravane Nutrilac sur le terrain</h3>
+        <p>Témoignages de commerçants, animations et rencontres avec les familles. Une production audiovisuelle signée Publix 360, du tournage au montage.</p>
+        <a class="btn btn-hot" href="#contact">Je veux une vidéo pour ma marque <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="partners" id="partenaires">
+  <div class="wrap">
+    <div class="title-rule"><h2>Nos <em>partenaires</em></h2></div>
+    <p class="partners-sub">Entreprises, institutions et organisations qui nous ont fait confiance pour leur communication.</p>
+  </div>
+  <!-- LOGOS : ajoutez une ligne par partenaire :
+       <div class="p-logo" role="listitem"><img src="img/partenaires/NOM.png" alt="Nom du partenaire"></div>
+       À partir de 6 logos, la bande défile automatiquement. -->
+  <div class="marquee" aria-label="Logos de nos partenaires">
+    <div class="track" id="ptrack" role="list">
+      <div class="p-logo" role="listitem"><img src="img/partenaires/hisense.png" alt="Hisense"></div>
+      <div class="p-logo" role="listitem"><img src="img/partenaires/fouani.png" alt="Fouani Group"></div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="p-cta">
+      <p>Votre marque mérite une communication à 360°.</p>
+      <a class="btn btn-line" href="#contact">Devenir partenaire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="news-sec" id="actualites">
+  <div class="wrap">
+    <div class="title-rule"><h2>Actualités</h2></div>
+    <article class="post">
+      <div class="post-img"><img src="img/B.jpg" alt="Remise de lots Nutrilac aux participantes sous le chapiteau" loading="lazy"></div>
+      <div class="post-body">
+        <span class="date">Événementiel · Caravane</span>
+        <h3>Retour sur la caravane Nutrilac &amp; Nutribom</h3>
+        <p>Publix 360 a orchestré une caravane promotionnelle au plus près des familles : animation au micro, jeu « Achetez, scannez, gagnez ! », distribution de kits et rencontres avec les mamans.</p>
+        <p>Toute l'opération a été couverte en photo et en vidéo par notre équipe audiovisuelle.</p>
+        <button class="btn btn-line" type="button" id="openVid2">Voir le reportage <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </article>
+    <p class="post-note">Nos prochaines actualités seront publiées ici.</p>
+  </div>
+</section>
+
+<section class="gallery-sec" id="galerie">
+  <div class="wrap">
+    <div class="title-rule"><h2>Galerie</h2></div>
+    <p class="gallery-sub">Nos campagnes en images. Cliquez sur une photo pour l'agrandir.</p>
+    <div class="gallery" id="gal">
+      <button type="button" class="g-item wide" data-i="0" aria-label="Agrandir : Remise des kits"><img src="img/BV.jpg" alt="Remise de kits sous le chapiteau" loading="lazy"><span class="g-cap"><span><small>Caravane Nutrilac</small><b>Remise des kits</b></span><span class="g-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></span></button>
+      <button type="button" class="g-item tall" data-i="1" aria-label="Agrandir : Animation au micro"><img src="img/micro.jpg" alt="Animatrice au micro brandissant une boîte Nutrilac" loading="lazy" style="object-position:center 25%"><span class="g-cap"><span><small>Activation</small><b>Animation au micro</b></span><span class="g-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></span></button>
+      <button type="button" class="g-item" data-i="2" aria-label="Agrandir : Ambassadrices"><img src="img/C.jpg" alt="Ambassadrice offrant un sac à une maman et son bébé" loading="lazy"><span class="g-cap"><span><small>Terrain</small><b>Ambassadrices</b></span><span class="g-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></span></button>
+      <button type="button" class="g-item wide" data-i="3" aria-label="Agrandir : Rencontre avec le public"><img src="img/N.jpg" alt="Photo de groupe avec les participantes" loading="lazy"><span class="g-cap"><span><small>Caravane Nutrilac</small><b>Rencontre avec le public</b></span><span class="g-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></span></button>
+      <button type="button" class="g-item" data-i="4" aria-label="Agrandir : Remise de lots"><img src="img/B.jpg" alt="Remise de lots aux participantes" loading="lazy"><span class="g-cap"><span><small>Jeu-concours</small><b>Remise de lots</b></span><span class="g-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></span></button>
+      <button type="button" class="g-item wide" data-i="5" aria-label="Agrandir : Supports imprimés"><img src="img/sacs.jpg" alt="Sacs « Achetez, scannez, gagnez ! » alignés" loading="lazy"><span class="g-cap"><span><small>Design graphique</small><b>Supports imprimés</b></span><span class="g-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></span></button>
+      <button type="button" class="g-item wide" data-i="6" aria-label="Agrandir : Tournage en boutique"><img src="img/poster.jpg" alt="Image du reportage vidéo en boutique" loading="lazy"><span class="g-cap"><span><small>Audiovisuel</small><b>Tournage en boutique</b></span><span class="g-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></span></button>
+    </div>
+  </div>
+</section>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Galerie photo">
+  <div class="lb-top"><span id="lbCount">1 / 7</span><button class="lb-btn" type="button" id="lbClose" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="lb-stage" id="lbStage">
+    <button class="lb-btn lb-prev" type="button" id="lbPrev" aria-label="Photo précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <img id="lbImg" alt="">
+    <button class="lb-btn lb-next" type="button" id="lbNext" aria-label="Photo suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>
+  <div><p class="lb-cap" id="lbCap"></p><div class="lb-dots" id="lbDots"></div></div>
+</div>
+
+<section class="nlsec" id="newsletter">
+  <div class="wrap">
+    <div class="nl-copy">
+      <span class="eyebrow">Newsletter</span>
+      <h2>Restez informé, <span class="it">à 360°</span></h2>
+      <p>Recevez dans votre boîte e-mail le meilleur de Publix 360 : nos campagnes, nos idées et nos rendez-vous.</p>
+      <ul class="perks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg><div><b>Nos dernières campagnes</b><span>Les coulisses de nos réalisations, en photos et en vidéo.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg><div><b>Conseils marketing</b><span>Des idées concrètes pour rendre votre marque plus visible.</span></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><div><b>Événements à venir</b><span>Caravanes, activations et rencontres près de chez vous.</span></div></li>
+      </ul>
+    </div>
+    <form class="nl-card" id="nl" novalidate>
+      <h3><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4 7.3V17h16V7.3z"/></svg>Je m'abonne</h3>
+      <label for="nlname">Prénom<input id="nlname" name="prenom" autocomplete="given-name"></label>
+      <label for="nlmail">E-mail<input id="nlmail" name="email" type="email" autocomplete="email" placeholder="nom@domaine.com"></label>
+      <fieldset class="full">
+        <legend>Ce qui vous intéresse</legend>
+        <label class="pick"><input type="checkbox" id="nl-c1" value="Campagnes" checked><span>Campagnes</span></label>
+        <label class="pick"><input type="checkbox" id="nl-c2" value="Marketing digital"><span>Marketing digital</span></label>
+        <label class="pick"><input type="checkbox" id="nl-c3" value="Événementiel"><span>Événementiel</span></label>
+        <label class="pick"><input type="checkbox" id="nl-c4" value="Audiovisuel"><span>Audiovisuel</span></label>
+      </fieldset>
+      <div class="full"><button class="btn btn-hot" type="submit">S'abonner gratuitement</button></div>
+      <small class="full">Vos données restent chez Publix 360. Pour vous désinscrire, écrivez à publix360bh@gmail.com.</small>
+      <p class="msg full" id="nlmsg" hidden></p>
+    </form>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-info">
+      <h2>Parlons de votre <span class="it">prochaine campagne</span></h2>
+      <p style="color:var(--muted)">Décrivez votre projet, nous revenons vers vous avec une proposition adaptée.</p>
+      <div class="row"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><a href="tel:+224628223174">+224 628 22 31 74</a></div>
+      <div class="row"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4 7.3V17h16V7.3z"/></svg><a href="mailto:publix360bh@gmail.com">publix360bh@gmail.com</a></div>
+      <div class="row"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7zm0 4.5A2.5 2.5 0 1 0 12 11.5 2.5 2.5 0 0 0 12 6.5z"/></svg>Nongo, Ratoma – Conakry, Guinée</div>
+      <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M8 13h8M8 17h5"/></svg><span>RCCM : GN.TCC.2024.B.12822</span></div>
+      <a class="btn btn-line wa" href="https://wa.me/224628223174" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.2 1.4z"/></svg> Écrire sur WhatsApp</a>
+    </div>
+    <form id="f" novalidate>
+      <label for="nom">Nom complet<input id="nom" name="nom" autocomplete="name"></label>
+      <label for="societe">Entreprise<input id="societe" name="societe" autocomplete="organization"></label>
+      <label for="tel">Téléphone<input id="tel" name="tel" type="tel" autocomplete="tel"></label>
+      <label for="besoin">Besoin
+        <select id="besoin" name="besoin">
+          <option>Stratégie de marque</option>
+          <option>Campagne multicanale</option>
+          <option>Design graphique</option>
+          <option>Marketing digital</option>
+          <option>Événementiel &amp; terrain</option>
+          <option>Production audiovisuelle</option>
+        </select>
+      </label>
+      <label class="full" for="projet">Votre projet<textarea id="projet" name="projet" placeholder="Objectifs, public visé, calendrier…"></textarea></label>
+      <div class="full"><button class="btn btn-hot" type="submit">Envoyer la demande</button></div>
+      <p class="msg full" id="fmsg" hidden></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <div class="wrap">
+      <div class="foot-brand"><img src="img/logo.png" alt="Publix 360°"><em>Créer • Diffuser • Impacter</em></div>
+      <ul class="foot-links">
+        <li><a href="#accueil">Accueil</a></li><li><a href="#apropos">À propos</a></li><li><a href="#services">Nos services</a></li><li><a href="#realisations">Nos réalisations</a></li><li><a href="#partenaires">Partenaires</a></li><li><a href="#actualites">Actualités</a></li><li><a href="#galerie">Galerie</a></li><li><a href="#newsletter">Newsletter</a></li><li><a href="#contact">Contact</a></li>
+      </ul>
+      <a class="btn btn-hot foot-cta" href="#newsletter">S'abonner à la newsletter</a>
+    </div>
+  </div>
+  <div class="legal">
+    <div class="wrap"><span>© 2026 PUBLIX 360 SARLU · RCCM GN.TCC.2024.B.12822 · Nongo, Ratoma – Conakry</span><span>+224 628 22 31 74 · publix360bh@gmail.com</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var vid=document.getElementById("vid");
+  function open(){vid.scrollIntoView({behavior:"smooth",block:"center"});var p=vid.play();if(p&&p.catch)p.catch(function(){})}
+  document.getElementById("openVid").addEventListener("click",open);
+  document.getElementById("openVid2").addEventListener("click",open);
+  document.querySelector(".card .play").parentNode.addEventListener("click",open);
+  [].forEach.call(document.querySelectorAll(".drawer a"),function(a){a.addEventListener("click",function(){document.querySelector(".burger").open=false})});
+
+  document.getElementById("f").addEventListener("submit",function(e){
+    e.preventDefault();var m=document.getElementById("fmsg"),n=document.getElementById("nom");m.hidden=false;
+    if(!n.value.trim()){m.textContent="Indiquez votre nom pour que nous puissions vous répondre.";n.focus();return}
+    var g=function(id){return document.getElementById(id).value.trim()};
+    var body="Nom : "+g("nom")+"\nEntreprise : "+g("societe")+"\nTéléphone : "+g("tel")+"\nBesoin : "+g("besoin")+"\n\n"+g("projet");
+    m.textContent="Votre messagerie s'ouvre avec la demande prête à envoyer. Sinon, écrivez-nous à publix360bh@gmail.com ou au +224 628 22 31 74.";
+    location.href="mailto:publix360bh@gmail.com?subject="+encodeURIComponent("Demande de projet – "+g("besoin"))+"&body="+encodeURIComponent(body);
+  });
+  document.getElementById("nl").addEventListener("submit",function(e){
+    e.preventDefault();var m=document.getElementById("nlmsg"),i=document.getElementById("nlmail");m.hidden=false;
+    if(!/^\S+@\S+\.\S+$/.test(i.value)){m.textContent="Saisissez une adresse e-mail valide, par exemple nom@domaine.com.";i.focus();return}
+    var pn=document.getElementById("nlname").value.trim();
+    var ints=[].slice.call(document.querySelectorAll(".pick input:checked")).map(function(c){return c.value}).join(", ")||"Toutes";
+    m.textContent="Votre messagerie s'ouvre avec l'inscription prête à envoyer à publix360bh@gmail.com.";
+    location.href="mailto:publix360bh@gmail.com?subject="+encodeURIComponent("Inscription newsletter")+"&body="+encodeURIComponent("Bonjour,\n\nMerci d'inscrire "+(pn?pn+" ":"")+"("+i.value.trim()+") à la newsletter Publix 360.\nCentres d'intérêt : "+ints);
+  });
+
+  var links=[].slice.call(document.querySelectorAll(".menu > li > a"));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute("href"))});
+  function spy(){
+    var y=window.scrollY+140,k=0;
+    secs.forEach(function(s,i){if(s&&s.offsetTop<=y)k=i});
+    links.forEach(function(a,i){a.classList.toggle("on",i===k)});
+  }
+  window.addEventListener("scroll",spy,{passive:true});spy();
+  /* partenaires : défilement automatique à partir de 6 logos, sinon rangée centrée */
+  var pt=document.getElementById("ptrack"),pl=[].slice.call(pt.children);
+  if(pl.length<6){pt.classList.add("static")}
+  else{pl.forEach(function(n){var c=n.cloneNode(true);c.setAttribute("aria-hidden","true");pt.appendChild(c)})}
+  /* galerie : apparition, inclinaison, visionneuse */
+  var items=[].slice.call(document.querySelectorAll(".g-item"));
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if("IntersectionObserver" in window&&!reduce){
+    var vh=window.innerHeight;
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove("pre");e.target.classList.add("show");io.unobserve(e.target);e.target.addEventListener("animationend",function(){this.classList.remove("show")},{once:true})}})},{threshold:.15});
+    items.forEach(function(el,i){if(el.getBoundingClientRect().top>vh){el.classList.add("pre");el.style.setProperty("--d",(i%4)*0.09+"s");io.observe(el)}});
+  }
+  if(!reduce&&matchMedia("(hover: hover)").matches){
+    items.forEach(function(el){
+      el.addEventListener("mousemove",function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform="rotateY("+(x*7)+"deg) rotateX("+(-y*7)+"deg) translateZ(0)"});
+      el.addEventListener("mouseleave",function(){el.style.transform=""});
+    });
+  }
+  var lb=document.getElementById("lb"),lbImg=document.getElementById("lbImg"),lbCap=document.getElementById("lbCap"),lbCount=document.getElementById("lbCount"),lbDots=document.getElementById("lbDots"),cur=0,last=null;
+  items.forEach(function(){lbDots.appendChild(document.createElement("i"))});
+  function show(k){
+    cur=(k+items.length)%items.length;var im=items[cur].querySelector("img");
+    lbImg.src=im.src;lbImg.alt=im.alt;lbImg.style.animation="none";void lbImg.offsetWidth;lbImg.style.animation="";
+    lbCap.textContent=items[cur].querySelector("b").textContent;lbCount.textContent=(cur+1)+" / "+items.length;
+    [].forEach.call(lbDots.children,function(d,i){d.classList.toggle("on",i===cur)});
+  }
+  function lbOpen(k){last=document.activeElement;show(k);lb.hidden=false;document.body.style.overflow="hidden";document.getElementById("lbClose").focus()}
+  function lbClose(){lb.hidden=true;document.body.style.overflow="";if(last)last.focus()}
+  items.forEach(function(el,i){el.addEventListener("click",function(){lbOpen(i)})});
+  document.getElementById("lbClose").addEventListener("click",lbClose);
+  document.getElementById("lbPrev").addEventListener("click",function(){show(cur-1)});
+  document.getElementById("lbNext").addEventListener("click",function(){show(cur+1)});
+  document.getElementById("lbStage").addEventListener("click",function(e){if(e.target.id==="lbStage")lbClose()});
+  document.addEventListener("keydown",function(e){if(lb.hidden)return;if(e.key==="Escape")lbClose();if(e.key==="ArrowLeft")show(cur-1);if(e.key==="ArrowRight")show(cur+1)});
+  var sx=null;lb.addEventListener("touchstart",function(e){sx=e.touches[0].clientX},{passive:true});
+  lb.addEventListener("touchend",function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));sx=null});
+})();
+</script>
+
+</html>
