@@ -45,7 +45,7 @@
   });
   /* apparition au défilement */
   if("IntersectionObserver" in window&&!reduceFx){
-    var groups=[".services li",".sd-card",".card",".feature-vid",".post",".p-logo",".p-cta",".about-img",".about-copy",".value",".title-rule",".partners-sub",".contact form",".tm-member",".dir-photo",".dir-text",".dir-drive",".quote-band blockquote",".ct-intro",".wl-title",".wl-lead",".wl-text"];
+    var groups=[".services li",".sd-card",".card",".feature-vid",".post",".p-logo",".p-cta",".about-img",".about-copy",".value",".title-rule",".partners-sub",".contact form",".tm-member",".dir-photo",".dir-text",".dir-drive",".quote-band blockquote",".ct-intro",".wl-title",".wl-lead",".wl-text",".offer-item"];
     var vh=window.innerHeight;
     var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;t.classList.remove("rv-pre");t.classList.add("rv-in");ro.unobserve(t);t.addEventListener("animationend",function(){t.classList.remove("rv-in");t.style.removeProperty("--rd")},{once:true})}})},{threshold:.12});
     groups.forEach(function(sel){[].forEach.call(document.querySelectorAll(sel),function(el,i){
