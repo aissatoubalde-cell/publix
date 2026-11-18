@@ -166,7 +166,9 @@ svg.ic{width:20px;height:20px;flex:none}
 .svc-link:hover,.svc-link:focus-visible{background:var(--ink-3);transform:translateY(-3px)}
 .svc-link:hover>svg,.svc-link:focus-visible>svg{transform:scale(1.12)}
 .svc-link:hover .svc-more,.svc-link:focus-visible .svc-more{opacity:1;transform:none}
-@media (hover:none){.svc-more{opacity:1;transform:none}}
+.svc-more{opacity:.85;transform:none}
+.svc-all{display:flex;justify-content:center;padding-bottom:34px}
+.svc-all .btn svg{color:currentColor;width:16px;height:16px}
 
 /* détail des services */
 .sdetail{padding-block:60px 70px;background:var(--ink-2);border-bottom:1px solid var(--line)}
@@ -458,6 +460,7 @@ textarea{min-height:110px;resize:vertical}
       <li><a class="svc-link" href="#svc-evenementiel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20"/><path d="M4 20V10l8-6 8 6v10"/><path d="M4 10h16"/><path d="M9 20v-5h6v5"/></svg><h3>Événementiel &amp; terrain</h3><p>Activation de marque, dispositifs promotionnels</p><span class="svc-more">Découvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
       <li><a class="svc-link" href="#svc-audiovisuel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg><h3>Audiovisuel</h3><p>Contenus visuels et multimédias</p><span class="svc-more">Découvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
     </ul>
+    <div class="svc-all"><a class="btn btn-hot" href="#services">Voir tous nos services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
 
