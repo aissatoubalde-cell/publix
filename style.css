@@ -342,6 +342,15 @@ svg.ic{width:20px;height:20px;flex:none}
 form{display:grid;grid-template-columns:1fr 1fr;gap:14px;min-width:0}
 form .full{grid-column:1/-1}
 label{display:flex;flex-direction:column;gap:6px;font-size:.84rem;font-weight:600;color:#C9D1DE;min-width:0}
+.who{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px;min-width:0}
+.who legend{font-size:.84rem;font-weight:600;color:#C9D1DE;margin-bottom:8px;padding:0;width:100%}
+.seg{position:relative;flex:1;min-width:140px}
+.seg input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.seg span{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:12px;border:1px solid var(--line);background:var(--ink);font-weight:700;font-size:.95rem;color:#C9D1DE;transition:all .2s}
+.seg span::before{content:"";width:14px;height:14px;border-radius:50%;border:2px solid #4A5468;transition:all .2s}
+.seg input:checked+span{border-color:var(--blue);background:rgba(26,123,240,.14);color:#fff}
+.seg input:checked+span::before{border-color:var(--blue);background:var(--blue);box-shadow:inset 0 0 0 3px var(--ink)}
+.seg input:focus-visible+span{outline:2px solid var(--orange);outline-offset:2px}
 input,select,textarea{font:inherit;font-weight:500;color:var(--paper);background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(26,123,240,.22)}
 textarea{min-height:110px;resize:vertical}
@@ -388,3 +397,6 @@ textarea{min-height:110px;resize:vertical}
 .page-services .title-rule,.page-services .sd-sub,.page-realisations .title-rule,.page-actualites .title-rule,.page-galerie .title-rule,.page-galerie .gallery-sub{display:none}
 .page .sdetail,.page .events,.page .news-sec,.page .gallery-sec{padding-top:44px}
 .page-a-propos .about{border-top:0}
+
+/* liste déroulante : même hauteur que les autres champs */
+select#besoin{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A4ACBA' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px;padding-right:40px!important}

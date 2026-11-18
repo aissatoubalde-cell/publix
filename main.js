@@ -13,11 +13,15 @@
 
   /* formulaire de contact */
   var f=$("f");
+  /* particulier ou entreprise : le champ "Nom de l'entreprise" n'apparaît que pour une entreprise */
+  var isEnt=function(){var r=$("profil-ent");return !r||r.checked};
+  var sw=$("societe-wrap");
+  if(f&&sw){var sync=function(){sw.hidden=!isEnt()};[].forEach.call(f.querySelectorAll('input[name="profil"]'),function(r){r.addEventListener("change",sync)});sync()}
   if(f)f.addEventListener("submit",function(e){
     e.preventDefault();var m=$("fmsg"),n=$("nom");m.hidden=false;
     if(!n.value.trim()){m.textContent="Indiquez votre nom pour que nous puissions vous répondre.";n.focus();return}
     var g=function(id){return $(id).value.trim()};
-    var body="Nom : "+g("nom")+"\nEntreprise : "+g("societe")+"\nTéléphone : "+g("tel")+"\nBesoin : "+g("besoin")+"\n\n"+g("projet");
+    var body="Profil : "+(isEnt()?"Entreprise":"Particulier")+"\nNom : "+g("nom")+(isEnt()?"\nEntreprise : "+g("societe"):"")+"\nTéléphone : "+g("tel")+"\nBesoin : "+g("besoin")+"\n\n"+g("projet");
     m.textContent="Votre messagerie s'ouvre avec la demande prête à envoyer. Sinon, écrivez-nous à publix360bh@gmail.com ou au +224 628 22 31 74.";
     location.href="mailto:publix360bh@gmail.com?subject="+encodeURIComponent("Demande de projet – "+g("besoin"))+"&body="+encodeURIComponent(body);
   });
