@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&family=Caveat:wght@600&display=swap">
 <style>
-/* Layout : barre contact, menu en pilule, hero titre + portrait avec vague, bande de 6 services, "À propos" clair + panneau sombre, cartes réalisations, section newsletter, pied avec liens. Le doré du modèle est remplacé par le dégradé orange-rouge du logo, avec le bleu en second. */
+/* Layout : barre contact, menu en pilule, hero titre + portrait avec vague, bande de 6 services, "À propos" clair + panneau sombre, cartes réalisations, pied avec liens. Le doré du modèle est remplacé par le dégradé orange-rouge du logo, avec le bleu en second. */
 :root{
   --ink:#050608;
   --ink-2:#0C0E13;
@@ -332,37 +332,6 @@ textarea{min-height:110px;resize:vertical}
 .foot-cta{justify-self:end}
 @media (max-width:900px){.foot-cta{justify-self:start}}
 
-/* newsletter */
-.nlsec{position:relative;overflow:hidden;padding-block:72px;background:radial-gradient(70% 120% at 100% 0%,#0A1A3A 0%,transparent 60%),radial-gradient(50% 90% at 0% 100%,rgba(242,40,28,.16) 0%,transparent 70%),var(--ink)}
-.nlsec::before{content:"";position:absolute;right:-160px;top:-160px;width:460px;height:460px;border-radius:50%;border:2px dashed rgba(26,123,240,.35);pointer-events:none}
-.nlsec::after{content:"";position:absolute;right:-90px;top:-90px;width:320px;height:320px;border-radius:50%;border:34px solid transparent;border-bottom-color:rgba(255,145,0,.5);border-left-color:rgba(242,40,28,.45);pointer-events:none}
-.nlsec .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,72px);align-items:center}
-.nl-copy{display:flex;flex-direction:column;gap:18px;min-width:0}
-.nl-copy .eyebrow{font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--red)}
-.nl-copy h2{font-size:clamp(1.9rem,4vw,3rem)}
-.nl-copy p{color:#C9D1DE;max-width:48ch;font-size:1.04rem}
-.perks{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
-.perks li{display:flex;gap:14px;align-items:flex-start}
-.perks svg{width:22px;height:22px;flex:none;color:var(--blue);margin-top:2px}
-.perks li:nth-child(2) svg{color:var(--red)}
-.perks li:nth-child(3) svg{color:var(--orange)}
-.perks b{display:block;font-weight:700}
-.perks span{color:var(--muted);font-size:.92rem}
-.nl-card{background:var(--ink-2);border:1.5px solid rgba(26,123,240,.55);border-radius:24px;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:16px;box-shadow:0 30px 60px -30px rgba(26,123,240,.45);min-width:0}
-.nl-card h3{grid-column:1/-1;font-size:1.35rem;display:flex;align-items:center;gap:12px}
-.nl-card h3 svg{width:28px;height:28px;color:var(--blue)}
-.nl-card .full{grid-column:1/-1}
-.nl-card fieldset{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;min-width:0}
-.nl-card legend{font-size:.84rem;font-weight:600;color:#C9D1DE;margin-bottom:8px;padding:0}
-.pick{position:relative}
-.pick input{position:absolute;opacity:0;inset:0;cursor:pointer;width:100%;height:100%;margin:0}
-.pick span{display:inline-block;padding:8px 14px;border-radius:999px;border:1px solid var(--line);font-size:.84rem;font-weight:600;color:#C9D1DE;transition:all .15s}
-.pick input:checked+span{background:var(--cool);border-color:transparent;color:#fff}
-.pick input:focus-visible+span{outline:2px solid var(--orange);outline-offset:2px}
-.nl-card .btn{width:100%;justify-content:center}
-.nl-card small{color:var(--muted);font-size:.8rem;line-height:1.45}
-@media (max-width:900px){.nlsec .wrap{grid-template-columns:1fr}}
-@media (max-width:520px){.nl-card{grid-template-columns:1fr;padding:22px}}
 .legal{border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
 .legal .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding-block:16px}
 @media (max-width:900px){
@@ -588,36 +557,6 @@ textarea{min-height:110px;resize:vertical}
   <div><p class="lb-cap" id="lbCap"></p><div class="lb-dots" id="lbDots"></div></div>
 </div>
 
-<section class="nlsec" id="newsletter">
-  <div class="wrap">
-    <div class="nl-copy">
-      <span class="eyebrow">Newsletter</span>
-      <h2>Restez informé, <span class="it">à 360°</span></h2>
-      <p>Recevez dans votre boîte e-mail le meilleur de Publix 360 : nos campagnes, nos idées et nos rendez-vous.</p>
-      <ul class="perks">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg><div><b>Nos dernières campagnes</b><span>Les coulisses de nos réalisations, en photos et en vidéo.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg><div><b>Conseils marketing</b><span>Des idées concrètes pour rendre votre marque plus visible.</span></div></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><div><b>Événements à venir</b><span>Caravanes, activations et rencontres près de chez vous.</span></div></li>
-      </ul>
-    </div>
-    <form class="nl-card" id="nl" novalidate>
-      <h3><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4 7.3V17h16V7.3z"/></svg>Je m'abonne</h3>
-      <label for="nlname">Prénom<input id="nlname" name="prenom" autocomplete="given-name"></label>
-      <label for="nlmail">E-mail<input id="nlmail" name="email" type="email" autocomplete="email" placeholder="nom@domaine.com"></label>
-      <fieldset class="full">
-        <legend>Ce qui vous intéresse</legend>
-        <label class="pick"><input type="checkbox" id="nl-c1" value="Campagnes" checked><span>Campagnes</span></label>
-        <label class="pick"><input type="checkbox" id="nl-c2" value="Marketing digital"><span>Marketing digital</span></label>
-        <label class="pick"><input type="checkbox" id="nl-c3" value="Événementiel"><span>Événementiel</span></label>
-        <label class="pick"><input type="checkbox" id="nl-c4" value="Audiovisuel"><span>Audiovisuel</span></label>
-      </fieldset>
-      <div class="full"><button class="btn btn-hot" type="submit">S'abonner gratuitement</button></div>
-      <small class="full">Vos données restent chez Publix 360. Pour vous désinscrire, écrivez à publix360bh@gmail.com.</small>
-      <p class="msg full" id="nlmsg" hidden></p>
-    </form>
-  </div>
-</section>
-
 <section class="contact" id="contact">
   <div class="wrap">
     <div class="contact-info">
@@ -655,9 +594,9 @@ textarea{min-height:110px;resize:vertical}
     <div class="wrap">
       <div class="foot-brand"><img src="img/logo.png" alt="Publix 360°"><em>Créer • Diffuser • Impacter</em></div>
       <ul class="foot-links">
-        <li><a href="#accueil">Accueil</a></li><li><a href="#apropos">À propos</a></li><li><a href="#services">Nos services</a></li><li><a href="#realisations">Nos réalisations</a></li><li><a href="#partenaires">Partenaires</a></li><li><a href="#actualites">Actualités</a></li><li><a href="#galerie">Galerie</a></li><li><a href="#newsletter">Newsletter</a></li><li><a href="#contact">Contact</a></li>
+        <li><a href="#accueil">Accueil</a></li><li><a href="#apropos">À propos</a></li><li><a href="#services">Nos services</a></li><li><a href="#realisations">Nos réalisations</a></li><li><a href="#partenaires">Partenaires</a></li><li><a href="#actualites">Actualités</a></li><li><a href="#galerie">Galerie</a></li><li><a href="#contact">Contact</a></li>
       </ul>
-      <a class="btn btn-hot foot-cta" href="#newsletter">S'abonner à la newsletter</a>
+      <a class="btn btn-hot foot-cta" href="#contact">Parlons projet</a>
     </div>
   </div>
   <div class="legal">
@@ -681,14 +620,6 @@ textarea{min-height:110px;resize:vertical}
     var body="Nom : "+g("nom")+"\nEntreprise : "+g("societe")+"\nTéléphone : "+g("tel")+"\nBesoin : "+g("besoin")+"\n\n"+g("projet");
     m.textContent="Votre messagerie s'ouvre avec la demande prête à envoyer. Sinon, écrivez-nous à publix360bh@gmail.com ou au +224 628 22 31 74.";
     location.href="mailto:publix360bh@gmail.com?subject="+encodeURIComponent("Demande de projet – "+g("besoin"))+"&body="+encodeURIComponent(body);
-  });
-  document.getElementById("nl").addEventListener("submit",function(e){
-    e.preventDefault();var m=document.getElementById("nlmsg"),i=document.getElementById("nlmail");m.hidden=false;
-    if(!/^\S+@\S+\.\S+$/.test(i.value)){m.textContent="Saisissez une adresse e-mail valide, par exemple nom@domaine.com.";i.focus();return}
-    var pn=document.getElementById("nlname").value.trim();
-    var ints=[].slice.call(document.querySelectorAll(".pick input:checked")).map(function(c){return c.value}).join(", ")||"Toutes";
-    m.textContent="Votre messagerie s'ouvre avec l'inscription prête à envoyer à publix360bh@gmail.com.";
-    location.href="mailto:publix360bh@gmail.com?subject="+encodeURIComponent("Inscription newsletter")+"&body="+encodeURIComponent("Bonjour,\n\nMerci d'inscrire "+(pn?pn+" ":"")+"("+i.value.trim()+") à la newsletter Publix 360.\nCentres d'intérêt : "+ints);
   });
 
   var links=[].slice.call(document.querySelectorAll(".menu > li > a"));
