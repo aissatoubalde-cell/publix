@@ -158,6 +158,39 @@ svg.ic{width:20px;height:20px;flex:none}
   .services li:nth-child(odd){border-left:0}
 }
 
+.svc-link{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;height:100%;text-decoration:none;color:inherit;padding:10px 6px;border-radius:14px;transition:background .25s,transform .25s}
+.services li{padding:0 8px}
+.svc-link svg{transition:transform .3s}
+.svc-more{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;color:var(--orange);opacity:0;transform:translateY(-4px);transition:all .25s}
+.svc-more svg{width:13px!important;height:13px!important;color:currentColor!important}
+.svc-link:hover,.svc-link:focus-visible{background:var(--ink-3);transform:translateY(-3px)}
+.svc-link:hover>svg,.svc-link:focus-visible>svg{transform:scale(1.12)}
+.svc-link:hover .svc-more,.svc-link:focus-visible .svc-more{opacity:1;transform:none}
+@media (hover:none){.svc-more{opacity:1;transform:none}}
+
+/* détail des services */
+.sdetail{padding-block:60px 70px;background:var(--ink-2);border-bottom:1px solid var(--line)}
+.sd-sub{text-align:center;color:var(--muted);margin:-14px auto 34px;max-width:56ch}
+.sd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sd-card{scroll-margin-top:110px;display:flex;flex-direction:column;gap:12px;padding:28px 26px;border-radius:20px;background:var(--ink);border:1px solid var(--line);min-width:0;transition:border-color .3s,box-shadow .3s,transform .3s}
+.sd-card:hover{border-color:rgba(26,123,240,.6);transform:translateY(-4px)}
+.sd-card:target{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,123,240,.35),0 24px 50px -24px rgba(26,123,240,.9);animation:sdPulse 1.4s ease 1}
+@keyframes sdPulse{0%{box-shadow:0 0 0 0 rgba(242,40,28,.6)}100%{box-shadow:0 0 0 3px rgba(26,123,240,.35),0 24px 50px -24px rgba(26,123,240,.9)}}
+.sd-ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:rgba(26,123,240,.12);color:var(--blue)}
+.sd-card:nth-child(even) .sd-ic{background:rgba(242,40,28,.12);color:var(--red)}
+.sd-ic svg{width:30px;height:30px}
+.sd-card h3{font-size:1.3rem}
+.sd-card>p{color:#C7CEDA;font-size:.96rem}
+.sd-card ul{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.sd-card li{display:flex;gap:10px;align-items:flex-start;font-size:.92rem;color:#DDE2EA}
+.sd-card li svg{width:16px;height:16px;flex:none;margin-top:3px;color:var(--orange)}
+.sd-cta{margin-top:auto;padding-top:12px;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.9rem;color:var(--blue);text-decoration:none}
+.sd-cta:hover{color:var(--orange)}
+.sd-cta svg{width:15px;height:15px;transition:transform .2s}
+.sd-cta:hover svg{transform:translateX(4px)}
+@media (max-width:980px){.sd-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.sd-grid{grid-template-columns:1fr}}
+
 /* à propos */
 .about{position:relative;overflow:hidden;background:linear-gradient(100deg,#FFFFFF 0%,var(--sky) 45%,var(--sky-2) 100%);color:var(--ink-on-sky);border-block:2px solid var(--blue)}
 .about .wrap{display:grid;grid-template-columns:.9fr 1.15fr .85fr;gap:32px;align-items:center;padding-block:22px}
@@ -359,12 +392,12 @@ textarea{min-height:110px;resize:vertical}
       <li><a href="#apropos">À propos</a></li>
       <li class="has-sub"><a href="#services">Nos services <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
         <ul class="sub">
-          <li><a href="#services">Stratégie de marque</a></li>
-          <li><a href="#services">Campagnes multicanales</a></li>
-          <li><a href="#services">Design graphique</a></li>
-          <li><a href="#services">Marketing digital</a></li>
-          <li><a href="#services">Événementiel &amp; terrain</a></li>
-          <li><a href="#services">Audiovisuel</a></li>
+          <li><a href="#svc-strategie">Stratégie de marque</a></li>
+          <li><a href="#svc-campagnes">Campagnes multicanales</a></li>
+          <li><a href="#svc-design">Design graphique</a></li>
+          <li><a href="#svc-digital">Marketing digital</a></li>
+          <li><a href="#svc-evenementiel">Événementiel &amp; terrain</a></li>
+          <li><a href="#svc-audiovisuel">Audiovisuel</a></li>
         </ul>
       </li>
       <li><a href="#realisations">Nos réalisations</a></li>
@@ -415,15 +448,15 @@ textarea{min-height:110px;resize:vertical}
   </svg>
 </header>
 
-<section class="services" id="services" aria-label="Nos services">
+<section class="services" aria-label="Aperçu de nos services">
   <div class="wrap">
     <ul>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg><h3>Stratégie de marque</h3><p>Positionnement, identité, stratégie de communication</p></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg><h3>Campagnes multicanales</h3><p>Télévision, radio, presse, affichage, digital</p></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg><h3>Design graphique</h3><p>Affiches, flyers, supports de communication</p></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><rect x="5" y="12" width="3" height="6"/><rect x="10.5" y="8" width="3" height="10"/><rect x="16" y="4" width="3" height="14"/></svg><h3>Marketing digital</h3><p>Google Ads, Meta Ads, LinkedIn Ads</p></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20"/><path d="M4 20V10l8-6 8 6v10"/><path d="M4 10h16"/><path d="M9 20v-5h6v5"/></svg><h3>Événementiel &amp; terrain</h3><p>Activation de marque, dispositifs promotionnels</p></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg><h3>Audiovisuel</h3><p>Contenus visuels et multimédias</p></li>
+      <li><a class="svc-link" href="#svc-strategie"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg><h3>Stratégie de marque</h3><p>Positionnement, identité, stratégie de communication</p><span class="svc-more">Découvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+      <li><a class="svc-link" href="#svc-campagnes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg><h3>Campagnes multicanales</h3><p>Télévision, radio, presse, affichage, digital</p><span class="svc-more">Découvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+      <li><a class="svc-link" href="#svc-design"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg><h3>Design graphique</h3><p>Affiches, flyers, supports de communication</p><span class="svc-more">Découvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+      <li><a class="svc-link" href="#svc-digital"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><rect x="5" y="12" width="3" height="6"/><rect x="10.5" y="8" width="3" height="10"/><rect x="16" y="4" width="3" height="14"/></svg><h3>Marketing digital</h3><p>Google Ads, Meta Ads, LinkedIn Ads</p><span class="svc-more">Découvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+      <li><a class="svc-link" href="#svc-evenementiel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20"/><path d="M4 20V10l8-6 8 6v10"/><path d="M4 10h16"/><path d="M9 20v-5h6v5"/></svg><h3>Événementiel &amp; terrain</h3><p>Activation de marque, dispositifs promotionnels</p><span class="svc-more">Découvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+      <li><a class="svc-link" href="#svc-audiovisuel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg><h3>Audiovisuel</h3><p>Contenus visuels et multimédias</p><span class="svc-more">Découvrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
     </ul>
   </div>
 </section>
@@ -445,6 +478,57 @@ textarea{min-height:110px;resize:vertical}
       <div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg><div>Imaginer<small>Concepts créatifs et différenciants</small></div></div>
       <div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14l16-9-5 16-3-6z"/><path d="M12 15l8-10"/></svg><div>Déployer<small>Les bons messages, les bons canaux</small></div></div>
       <div class="value"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/></svg><div>Mesurer<small>Résultats et optimisation</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sdetail" id="services">
+  <div class="wrap">
+    <div class="title-rule"><h2>Nos <em>services</em></h2></div>
+    <p class="sd-sub">Six métiers réunis dans une seule équipe, pour piloter votre communication de la stratégie jusqu'au terrain.</p>
+    <div class="sd-grid">
+      <article class="sd-card" id="svc-strategie">
+        <div class="sd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg></div>
+        <h3>Stratégie de marque</h3>
+        <p>Nous clarifions qui vous êtes et ce qui vous distingue, puis nous traçons la feuille de route de toute votre communication.</p>
+        <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Audit et positionnement</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Identité de marque : nom, logo, charte</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Plan de communication</li></ul>
+        <a class="sd-cta" href="#contact">Demander un devis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="sd-card" id="svc-campagnes">
+        <div class="sd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></div>
+        <h3>Campagnes multicanales</h3>
+        <p>Un même message, décliné sur les médias qui touchent vraiment votre public, de la télévision aux réseaux sociaux.</p>
+        <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Spots télévision et radio</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Annonces presse et affichage</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Publicité digitale</li></ul>
+        <a class="sd-cta" href="#contact">Demander un devis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="sd-card" id="svc-design">
+        <div class="sd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg></div>
+        <h3>Design graphique</h3>
+        <p>Des visuels cohérents et percutants, prêts pour l'impression comme pour l'écran.</p>
+        <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Affiches et flyers</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Sacs, PLV et supports personnalisés</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Visuels pour les réseaux sociaux</li></ul>
+        <a class="sd-cta" href="#contact">Demander un devis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="sd-card" id="svc-digital">
+        <div class="sd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><rect x="5" y="12" width="3" height="6"/><rect x="10.5" y="8" width="3" height="10"/><rect x="16" y="4" width="3" height="14"/></svg></div>
+        <h3>Marketing digital</h3>
+        <p>Des campagnes sponsorisées ciblées, suivies et ajustées pour toucher vos clients là où ils passent leur temps.</p>
+        <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Google Ads</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Meta Ads : Facebook et Instagram</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>LinkedIn Ads</li></ul>
+        <a class="sd-cta" href="#contact">Demander un devis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="sd-card" id="svc-evenementiel">
+        <div class="sd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20"/><path d="M4 20V10l8-6 8 6v10"/><path d="M4 10h16"/><path d="M9 20v-5h6v5"/></svg></div>
+        <h3>Événementiel &amp; terrain</h3>
+        <p>Nous allons à la rencontre de votre public avec des dispositifs qui font vivre votre marque en vrai.</p>
+        <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Caravanes promotionnelles</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Activations et jeux-concours</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Ambassadeurs et distribution de kits</li></ul>
+        <a class="sd-cta" href="#contact">Demander un devis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="sd-card" id="svc-audiovisuel">
+        <div class="sd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg></div>
+        <h3>Communication audiovisuelle</h3>
+        <p>De l'écriture au montage, nous produisons les images qui racontent votre marque.</p>
+        <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Spots publicitaires</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Reportages et témoignages</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Contenus pour les réseaux sociaux</li></ul>
+        <a class="sd-cta" href="#contact">Demander un devis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
     </div>
   </div>
 </section>
