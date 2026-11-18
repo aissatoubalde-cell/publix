@@ -638,3 +638,8 @@ select#besoin{appearance:none;-webkit-appearance:none;background-image:url("data
 .soc svg{width:19px;height:19px}
 a.soc:hover{transform:translateY(-3px);background:var(--blue);border-color:var(--blue);box-shadow:0 12px 24px -12px rgba(26,123,240,.9)}
 .soc-off{opacity:.45;cursor:default}
+
+/* navigation du pied de page : une ligne par lien, sans trou */
+.foot-links{grid-template-columns:repeat(2,max-content);column-gap:28px;row-gap:10px;align-content:start}
+.foot-links a{white-space:nowrap}
+@media (max-width:380px){.foot-links{grid-template-columns:1fr}}
