@@ -520,3 +520,11 @@ select#besoin{appearance:none;-webkit-appearance:none;background-image:url("data
 .tm-card.alt .tm-pic::after{background:var(--heat)}
 .tm-card:hover .tm-pic img{transform:scale(1.05)}
 .tm-card h3{font-size:1.25rem}
+
+/* bienvenue */
+.welcome{padding-block:64px 56px;text-align:center;background:radial-gradient(60% 100% at 50% 0%,rgba(26,123,240,.14),transparent 70%),var(--ink)}
+.welcome .wrap{display:flex;flex-direction:column;align-items:center;gap:22px}
+.wl-title{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:700;line-height:1.05}
+.wl-lead{font-size:clamp(1.08rem,1.8vw,1.3rem);font-weight:600;color:var(--paper);max-width:62ch}
+.wl-text{color:#C9D1DE;max-width:78ch;font-size:1.02rem;line-height:1.75}
+.wl-text b{color:var(--paper);font-weight:700}
