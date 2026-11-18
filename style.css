@@ -369,7 +369,6 @@ textarea{min-height:110px;resize:vertical}
 .fwa{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 18px;border-radius:12px;background:#25D366;color:#06210F;font-weight:800;text-decoration:none;transition:transform .2s,box-shadow .2s}
 .fwa svg{width:22px;height:22px;color:#06210F}
 .fwa:hover{transform:translateY(-2px);box-shadow:0 12px 26px -12px rgba(37,211,102,.8)}
-.foot-cta{justify-content:center}
 @media (max-width:1000px){.foot .wrap{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.foot .wrap{grid-template-columns:1fr;gap:30px}}
 .legal{border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
