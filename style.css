@@ -149,18 +149,18 @@ svg.ic{width:20px;height:20px;flex:none}
 .svc-link{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;height:100%;text-decoration:none;color:inherit;padding:10px 6px;border-radius:14px;transition:background .25s,transform .25s}
 .services li{padding:0 8px}
 .svc-link svg{transition:transform .3s}
-.svc-more{margin-top:6px;display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;color:#1A0E02;background:#E08A3C;padding:8px 14px;border-radius:9px;transition:background .2s,transform .2s}
-.svc-more{white-space:nowrap}
+.svc-more{margin-top:6px;display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;color:#fff;background:var(--blue);padding:8px 14px;border-radius:9px;transition:background .2s,transform .2s}
+.svc-more{white-space:nowrap;margin-top:auto}
 @media (max-width:560px){.svc-more{font-size:.72rem;padding:7px 10px;gap:4px}.sq-btn{padding:0 22px;min-height:50px;font-size:.98rem}}
 .svc-more svg{width:14px!important;height:14px!important;color:currentColor!important}
 .svc-link:hover,.svc-link:focus-visible{background:var(--ink-3);transform:translateY(-3px)}
 .svc-link:hover>svg,.svc-link:focus-visible>svg{transform:scale(1.12)}
-.svc-link:hover .svc-more,.svc-link:focus-visible .svc-more{background:var(--orange)}
+.svc-link:hover .svc-more,.svc-link:focus-visible .svc-more{background:var(--blue-deep)}
 .svc-all{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;padding-bottom:36px}
 .sq-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 34px;border-radius:12px;font-family:var(--f-body);font-weight:800;font-size:1.05rem;text-decoration:none;transition:background .2s,border-color .2s,transform .2s}
 .sq-btn svg{width:18px!important;height:18px!important;color:currentColor!important}
-.sq-fill{background:#E08A3C;color:#14193A}
-.sq-fill:hover{background:var(--orange);transform:translateY(-2px)}
+.sq-fill{background:var(--blue);color:#fff;box-shadow:0 12px 28px -14px rgba(26,123,240,.9)}
+.sq-fill:hover{background:var(--blue-deep);transform:translateY(-2px)}
 .sq-line{border:1.5px solid rgba(255,255,255,.35);color:#fff}
 .sq-line:hover{border-color:var(--blue);background:rgba(26,123,240,.12)}
 
