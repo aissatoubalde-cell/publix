@@ -507,3 +507,16 @@ select#besoin{appearance:none;-webkit-appearance:none;background-image:url("data
 @media (max-width:700px){.dir-grid{grid-template-columns:1fr}.dir-photo{max-width:320px}}
 .home-team{background:var(--ink-2);padding-top:10px}
 .home-team .tm-card{background:var(--ink)}
+
+/* équipe : grandes photos */
+.tm-card{padding:0;overflow:hidden;gap:0}
+.tm-card>p,.tm-card>.tm-top{padding-inline:24px}
+.tm-card>.tm-top{padding-top:20px}
+.tm-card>p{padding-top:10px}
+.tm-card>p:last-child{padding-bottom:24px}
+.tm-pic{margin:0;position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--ink-3)}
+.tm-pic img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.tm-pic::after{content:"";position:absolute;inset:auto 0 0 0;height:4px;background:var(--cool)}
+.tm-card.alt .tm-pic::after{background:var(--heat)}
+.tm-card:hover .tm-pic img{transform:scale(1.05)}
+.tm-card h3{font-size:1.25rem}
