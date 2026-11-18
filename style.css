@@ -496,3 +496,12 @@ select#besoin{appearance:none;-webkit-appearance:none;background-image:url("data
 .ct-intro p{color:#C9D1DE;max-width:60ch}
 .ct-legal{color:var(--muted);font-size:.78rem;line-height:1.5}
 .home-director{background:var(--ink-2);border-top:1px solid var(--line)}
+
+/* photo du directeur général */
+.dir-grid{grid-template-columns:minmax(0,.85fr) minmax(0,1.5fr) minmax(0,1fr)}
+.dir-photo{margin:0;position:relative;border-radius:24px;padding:4px;background:linear-gradient(150deg,var(--blue),var(--blue-deep) 40%,var(--red) 75%,var(--orange));box-shadow:0 30px 60px -30px rgba(26,123,240,.8);align-self:start}
+.dir-photo img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 15%;border-radius:20px}
+.dir-photo::after{content:"";position:absolute;right:-14px;bottom:-14px;width:70px;height:70px;border-radius:50%;border:3px dashed rgba(255,145,0,.7);pointer-events:none}
+.tm-photo{object-fit:cover;object-position:center 15%;padding:0;border:2px solid var(--blue)}
+@media (max-width:1100px){.dir-grid{grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr)}.dir-drive{grid-column:1/-1}}
+@media (max-width:700px){.dir-grid{grid-template-columns:1fr}.dir-photo{max-width:320px}}
