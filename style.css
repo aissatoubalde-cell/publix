@@ -505,3 +505,5 @@ select#besoin{appearance:none;-webkit-appearance:none;background-image:url("data
 .tm-photo{object-fit:cover;object-position:center 15%;padding:0;border:2px solid var(--blue)}
 @media (max-width:1100px){.dir-grid{grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr)}.dir-drive{grid-column:1/-1}}
 @media (max-width:700px){.dir-grid{grid-template-columns:1fr}.dir-photo{max-width:320px}}
+.home-team{background:var(--ink-2);padding-top:10px}
+.home-team .tm-card{background:var(--ink)}
