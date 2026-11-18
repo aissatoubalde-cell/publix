@@ -26,6 +26,34 @@
     location.href="mailto:publix360bh@gmail.com?subject="+encodeURIComponent("Demande de projet – "+g("besoin"))+"&body="+encodeURIComponent(body);
   });
 
+
+  /* ===== effets ===== */
+  var reduceFx=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* barre de progression, menu resserré, bouton retour en haut */
+  var bar=document.createElement("div");bar.className="progress";bar.setAttribute("aria-hidden","true");document.body.appendChild(bar);
+  var top=document.createElement("button");top.className="totop";top.type="button";top.setAttribute("aria-label","Revenir en haut de la page");
+  top.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>';
+  top.addEventListener("click",function(){window.scrollTo({top:0,behavior:reduceFx?"auto":"smooth"})});document.body.appendChild(top);
+  var nav=document.querySelector(".nav"),ticking=false;
+  function onScroll(){var h=document.documentElement,max=h.scrollHeight-h.clientHeight,y=window.scrollY;
+    bar.style.setProperty("--p",max>0?(y/max).toFixed(4):0);
+    if(nav)nav.classList.toggle("scrolled",y>40);top.classList.toggle("show",y>600);ticking=false}
+  window.addEventListener("scroll",function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});onScroll();
+  /* halo qui suit la souris */
+  [].forEach.call(document.querySelectorAll(".sd-card,.card,.post"),function(el){
+    el.addEventListener("mousemove",function(e){var r=el.getBoundingClientRect();el.style.setProperty("--mx",(e.clientX-r.left)+"px");el.style.setProperty("--my",(e.clientY-r.top)+"px")});
+  });
+  /* apparition au défilement */
+  if("IntersectionObserver" in window&&!reduceFx){
+    var groups=[".services li",".sd-card",".card",".feature-vid",".post",".p-logo",".p-cta",".about-img",".about-copy",".value",".title-rule",".partners-sub",".contact form"];
+    var vh=window.innerHeight;
+    var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;t.classList.remove("rv-pre");t.classList.add("rv-in");ro.unobserve(t);t.addEventListener("animationend",function(){t.classList.remove("rv-in");t.style.removeProperty("--rd")},{once:true})}})},{threshold:.12});
+    groups.forEach(function(sel){[].forEach.call(document.querySelectorAll(sel),function(el,i){
+      if(el.closest(".track"))return;
+      if(el.getBoundingClientRect().top>vh){el.classList.add("rv-pre");el.style.setProperty("--rd",(i%6)*0.08+"s");ro.observe(el)}
+    })});
+  }
+
   /* partenaires : défilement automatique à partir de 6 logos, sinon rangée centrée */
   var pt=$("ptrack");
   if(pt){var pl=[].slice.call(pt.children);

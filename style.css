@@ -402,3 +402,49 @@ textarea{min-height:110px;resize:vertical}
 
 /* liste déroulante : même hauteur que les autres champs */
 select#besoin{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A4ACBA' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px;padding-right:40px!important}
+
+/* ===================== EFFETS ===================== */
+/* barre de progression de lecture */
+.progress{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:3px;width:100%;z-index:30;transform-origin:0 50%;transform:scaleX(var(--p,0));background:linear-gradient(90deg,var(--blue),var(--red),var(--orange));pointer-events:none}
+/* menu qui se resserre au défilement */
+.nav .wrap{transition:padding .3s ease}
+.nav.scrolled{background:rgba(5,6,8,.97);box-shadow:0 10px 30px -18px rgba(0,0,0,.9)}
+.nav.scrolled .wrap{padding-block:6px}
+.nav .brand img{transition:height .3s ease}
+.nav.scrolled .brand img{height:42px}
+/* soulignement animé dans le menu */
+.menu>li>a:not(.on){position:relative}
+.menu>li>a:not(.on)::after{content:"";position:absolute;left:14px;right:14px;bottom:3px;height:2px;border-radius:2px;background:var(--heat);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.menu>li>a:not(.on):hover::after{transform:scaleX(1)}
+/* reflet lumineux sur les boutons orange */
+.btn-hot,.sq-fill{position:relative;overflow:hidden;isolation:isolate}
+.btn-hot::after,.sq-fill::after{content:"";position:absolute;top:0;bottom:0;left:-75%;width:50%;z-index:-1;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .7s ease}
+.btn-hot:hover::after,.sq-fill:hover::after{left:130%}
+/* halo qui suit la souris sur les cartes */
+.sd-card,.card,.post,.p-logo{position:relative}
+.sd-card::after,.card::after,.post::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(26,123,240,.16),transparent 60%)}
+.sd-card:hover::after,.card:hover::after,.post:hover::after{opacity:1}
+/* titres d'accueil : apparition au chargement */
+@keyframes upIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+/* apparition au défilement : seuls les éléments encore hors écran sont préparés */
+.rv-pre{opacity:0;transform:translateY(34px)}
+.rv-in{animation:upIn .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--rd,0s)}
+/* bouton retour en haut */
+.totop{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:max(18px,env(safe-area-inset-bottom,0px));z-index:25;width:48px;height:48px;border-radius:14px;border:0;cursor:pointer;display:grid;place-items:center;color:#fff;background:var(--heat);box-shadow:0 12px 28px -10px rgba(242,40,28,.8);opacity:0;transform:translateY(16px) scale(.9);pointer-events:none;transition:all .3s ease}
+.totop.show{opacity:1;transform:none;pointer-events:auto}
+.totop:hover{transform:translateY(-3px)}
+.totop svg{width:22px;height:22px}
+@media (prefers-reduced-motion:no-preference){
+  .hero-copy>*{animation:upIn .9s cubic-bezier(.2,.7,.2,1) both}
+  .hero-copy>*:nth-child(2){animation-delay:.12s}
+  .hero-copy>*:nth-child(3){animation-delay:.24s}
+  .hero-art{animation:fadeIn 1.2s ease both .2s}
+  .hero-art img{animation:floaty 6s ease-in-out infinite}
+  .page-head .wrap>*{animation:upIn .8s cubic-bezier(.2,.7,.2,1) both}
+  .page-head .wrap>*:nth-child(2){animation-delay:.1s}
+  .page-head .wrap>*:nth-child(3){animation-delay:.2s}
+  .services li{transition:transform .3s}
+}
+@media (prefers-reduced-motion:reduce){.rv-pre{opacity:1;transform:none}.rv-in{animation:none}.progress{display:none}}
