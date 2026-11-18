@@ -45,7 +45,7 @@
   });
   /* apparition au défilement */
   if("IntersectionObserver" in window&&!reduceFx){
-    var groups=[".services li",".sd-card",".card",".feature-vid",".post",".p-logo",".p-cta",".about-img",".about-copy",".value",".title-rule",".partners-sub",".contact form",".tm-member",".dir-photo",".dir-text",".dir-drive",".quote-band blockquote",".ct-intro",".wl-title",".wl-lead",".wl-text",".offer-item"];
+    var groups=[".services li",".sd-card",".card",".feature-vid",".post",".p-logo",".p-cta",".about-img",".about-copy",".value",".title-rule",".partners-sub",".contact form",".quote-band blockquote",".ct-intro",".wl-title",".wl-lead",".wl-text",".offer-item"];
     var vh=window.innerHeight;
     var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;t.classList.remove("rv-pre");t.classList.add("rv-in");ro.unobserve(t);t.addEventListener("animationend",function(){t.classList.remove("rv-in");t.style.removeProperty("--rd")},{once:true})}})},{threshold:.12});
     groups.forEach(function(sel){[].forEach.call(document.querySelectorAll(sel),function(el,i){
@@ -53,6 +53,28 @@
       if(el.getBoundingClientRect().top>vh){el.classList.add("rv-pre");el.style.setProperty("--rd",(i%6)*0.08+"s");ro.observe(el)}
     })});
   }
+
+
+  /* ===== effets : mot du directeur & équipe ===== */
+  (function(){
+    var secs=[].slice.call(document.querySelectorAll(".director,.team"));
+    if(!secs.length)return;
+    var fine=matchMedia("(hover: hover) and (pointer: fine)").matches;
+    if("IntersectionObserver" in window&&!reduceFx){
+      var vh=window.innerHeight;
+      var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove("fx-wait");e.target.classList.add("fx-on");so.unobserve(e.target)}})},{threshold:.18});
+      secs.forEach(function(s){if(s.getBoundingClientRect().top>vh*0.85){s.classList.add("fx-wait");so.observe(s)}else{s.classList.add("fx-on")}});
+    }else{secs.forEach(function(s){s.classList.add("fx-on")})}
+    /* inclinaison 3D qui suit la souris */
+    if(fine&&!reduceFx){
+      [].forEach.call(document.querySelectorAll(".dir-photo,.tm-photo-lg"),function(el){
+        el.addEventListener("mousemove",function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+          el.style.setProperty("--rx",(-y*8).toFixed(2)+"deg");el.style.setProperty("--ry",(x*10).toFixed(2)+"deg");
+          el.style.setProperty("--gx",((x+.5)*100).toFixed(1)+"%");el.style.setProperty("--gy",((y+.5)*100).toFixed(1)+"%")});
+        el.addEventListener("mouseleave",function(){el.style.setProperty("--rx","0deg");el.style.setProperty("--ry","0deg")});
+      });
+    }
+  })();
 
   /* partenaires : défilement automatique à partir de 6 logos, sinon rangée centrée */
   var pt=$("ptrack");
