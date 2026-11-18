@@ -22,8 +22,8 @@
     if(!n.value.trim()){m.textContent="Indiquez votre nom pour que nous puissions vous répondre.";n.focus();return}
     var g=function(id){return $(id).value.trim()};
     var body="Profil : "+(isEnt()?"Entreprise":"Particulier")+"\nNom : "+g("nom")+(isEnt()?"\nEntreprise : "+g("societe"):"")+"\nTéléphone : "+g("tel")+"\nBesoin : "+g("besoin")+"\n\n"+g("projet");
-    m.textContent="Votre messagerie s'ouvre avec la demande prête à envoyer. Sinon, écrivez-nous à publix360bh@gmail.com ou au +224 628 22 31 74.";
-    location.href="mailto:publix360bh@gmail.com?subject="+encodeURIComponent("Demande de projet – "+g("besoin"))+"&body="+encodeURIComponent(body);
+    m.textContent="Votre messagerie s'ouvre avec la demande prête à envoyer. Sinon, écrivez-nous à infos@publix360.net ou au +224 610 30 00 00.";
+    location.href="mailto:infos@publix360.net?subject="+encodeURIComponent("Demande de projet – "+g("besoin"))+"&body="+encodeURIComponent(body);
   });
 
 
