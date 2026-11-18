@@ -629,3 +629,12 @@ select#besoin{appearance:none;-webkit-appearance:none;background-image:url("data
 .rz-item:hover img{transform:scale(1.07);filter:saturate(1.15)}
 .rz-item:hover figcaption{transform:translateY(-4px)}
 @media (max-width:900px){.rz-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.rz-big{grid-row:auto;grid-column:1/-1;aspect-ratio:4/3}.rz-wide{grid-column:1/-1;aspect-ratio:16/9}.rz-item:not(.rz-big):not(.rz-wide){aspect-ratio:1}}
+
+/* réseaux sociaux */
+.socials{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.soc-lbl{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.soc-row{display:flex;gap:10px}
+.soc{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;color:#fff;background:var(--ink-3);border:1px solid var(--line);transition:transform .25s,background .25s,border-color .25s,box-shadow .25s}
+.soc svg{width:19px;height:19px}
+a.soc:hover{transform:translateY(-3px);background:var(--blue);border-color:var(--blue);box-shadow:0 12px 24px -12px rgba(26,123,240,.9)}
+.soc-off{opacity:.45;cursor:default}
