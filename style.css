@@ -495,3 +495,4 @@ select#besoin{appearance:none;-webkit-appearance:none;background-image:url("data
 .ct-intro h2{font-size:clamp(1.8rem,4vw,2.6rem)}
 .ct-intro p{color:#C9D1DE;max-width:60ch}
 .ct-legal{color:var(--muted);font-size:.78rem;line-height:1.5}
+.home-director{background:var(--ink-2);border-top:1px solid var(--line)}
