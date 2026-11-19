@@ -643,3 +643,38 @@ a.soc:hover{transform:translateY(-3px);background:var(--blue);border-color:var(-
 .foot-links{grid-template-columns:repeat(2,max-content);column-gap:28px;row-gap:10px;align-content:start}
 .foot-links a{white-space:nowrap}
 @media (max-width:380px){.foot-links{grid-template-columns:1fr}}
+
+/* équipe : présentation au clic */
+.tm-member .tm-bio{display:none}
+.tm-trigger{display:block;width:100%;padding:0;border:0;cursor:pointer;font:inherit;color:inherit;text-align:left}
+.tm-trigger:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+.tm-ico{position:absolute;right:16px;bottom:16px;z-index:3;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--heat);box-shadow:0 10px 26px -8px rgba(242,40,28,.9);transform:scale(.4) rotate(-90deg);opacity:0;transition:transform .5s cubic-bezier(.3,1.6,.5,1),opacity .3s}
+.tm-ico svg{width:24px;height:24px;transition:transform .35s}
+.tm-ico::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid rgba(255,145,0,.8);animation:icoPulse 2s ease-out infinite}
+@keyframes icoPulse{from{transform:scale(1);opacity:.9}to{transform:scale(1.7);opacity:0}}
+.tm-hint{position:absolute;left:16px;bottom:28px;z-index:3;font-size:.82rem;font-weight:700;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.6);opacity:0;transform:translateX(-10px);transition:all .35s}
+/* l'icône sort quand la photo est à l'écran, puis au survol */
+.fx-on .tm-ico,.team:not(.fx-wait) .tm-ico{opacity:1;transform:none;transition-delay:1.1s}
+.tm-trigger:hover .tm-ico,.tm-trigger:focus-visible .tm-ico{transform:scale(1.12);transition-delay:0s}
+.tm-trigger:hover .tm-ico svg{transform:rotate(90deg)}
+.tm-trigger:hover .tm-hint,.tm-trigger:focus-visible .tm-hint{opacity:1;transform:none}
+@media (hover:none){.tm-hint{opacity:1;transform:none}}
+/* fenêtre de présentation */
+.tm-modal{position:fixed;inset:0;z-index:70;display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:rgba(3,4,7,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);animation:fadeIn .3s ease}
+.tmm-box{position:relative;width:min(980px,100%);max-height:calc(100vh - 32px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);background:var(--ink-2);border:1px solid rgba(26,123,240,.5);border-radius:24px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.9);animation:tmmIn .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes tmmIn{from{opacity:0;transform:translateY(30px) scale(.96)}}
+.tmm-photo{position:relative;min-height:100%;background:var(--ink-3)}
+.tmm-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.tmm-photo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,var(--blue),var(--red),var(--orange))}
+.tmm-body{padding:36px 34px 26px;display:flex;flex-direction:column;gap:10px;overflow:auto;min-width:0}
+.tmm-role{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700}
+.tmm-body h3{font-family:var(--f-display);font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.1}
+.tmm-text{display:flex;flex-direction:column;gap:12px;color:#C7CEDA;font-size:.98rem;line-height:1.7;margin-top:6px}
+.tmm-text b{color:var(--paper)}
+.tmm-nav{margin-top:auto;padding-top:18px;display:flex;align-items:center;gap:14px;color:var(--muted);font-weight:700;font-variant-numeric:tabular-nums}
+.tmm-btn,.tmm-close{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--line);background:var(--ink);color:#fff;cursor:pointer;transition:all .2s}
+.tmm-btn:hover,.tmm-close:hover{background:var(--blue);border-color:var(--blue)}
+.tmm-btn svg,.tmm-close svg{width:20px;height:20px}
+.tmm-close{position:absolute;top:14px;right:14px;z-index:2}
+@media (max-width:760px){.tmm-box{grid-template-columns:1fr;max-height:calc(100vh - 32px);overflow:auto}.tmm-photo{min-height:0;aspect-ratio:4/3}.tmm-body{overflow:visible}}
+@media (prefers-reduced-motion:reduce){.tm-ico::before{animation:none}.tm-modal,.tmm-box{animation:none}}

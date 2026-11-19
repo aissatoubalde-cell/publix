@@ -76,6 +76,27 @@
     }
   })();
 
+
+  /* équipe : fenêtre de présentation */
+  (function(){
+    var trig=[].slice.call(document.querySelectorAll(".tm-trigger")),md=$("tmModal");
+    if(!trig.length||!md)return;
+    var cur=0,last=null;
+    function show(k){cur=(k+trig.length)%trig.length;var fig=trig[cur].closest(".tm-member"),im=trig[cur].querySelector("img");
+      $("tmmImg").src=im.src;$("tmmImg").alt=im.alt;$("tmmImg").style.objectPosition=im.style.objectPosition||"center 20%";
+      $("tmmName").textContent=fig.querySelector("h3").textContent;$("tmmRole").textContent=fig.querySelector(".tm-role").textContent;
+      $("tmmText").innerHTML=fig.querySelector(".tm-bio").innerHTML;$("tmmCount").textContent=(cur+1)+" / "+trig.length;
+      md.querySelector(".tmm-body").scrollTop=0}
+    function open(k){last=document.activeElement;show(k);md.hidden=false;document.body.style.overflow="hidden";$("tmmClose").focus()}
+    function close(){md.hidden=true;document.body.style.overflow="";if(last)last.focus()}
+    trig.forEach(function(t,i){t.addEventListener("click",function(){open(i)})});
+    $("tmmClose").addEventListener("click",close);
+    $("tmmPrev").addEventListener("click",function(){show(cur-1)});
+    $("tmmNext").addEventListener("click",function(){show(cur+1)});
+    md.addEventListener("click",function(e){if(e.target===md)close()});
+    document.addEventListener("keydown",function(e){if(md.hidden)return;if(e.key==="Escape")close();if(e.key==="ArrowLeft")show(cur-1);if(e.key==="ArrowRight")show(cur+1)});
+  })();
+
   /* partenaires : défilement automatique à partir de 6 logos, sinon rangée centrée */
   var pt=$("ptrack");
   if(pt){var pl=[].slice.call(pt.children);
