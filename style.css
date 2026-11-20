@@ -733,3 +733,4 @@ a.soc:hover{transform:translateY(-3px);background:var(--blue);border-color:var(-
   .fwa{justify-self:start}
 }
 @media (max-width:560px){.foot-links{column-gap:22px;row-gap:8px;font-size:.86rem}.foot-contact{gap:9px}}
+.brand em{white-space:nowrap}
