@@ -694,3 +694,8 @@ a.soc:hover{transform:translateY(-3px);background:var(--blue);border-color:var(-
 @media (max-width:480px){.brand img{height:22px}}
 .foot-brand img{height:38px;width:auto}
 .hero-art img{inset:18% 6%;width:88%;height:64%}
+
+/* en-tête : slogan sous le logo pour libérer la place */
+.brand{flex-direction:column;align-items:flex-start;gap:4px}
+.brand em{font-size:.74rem}
+@media (max-width:1240px){.brand em{display:none}}
