@@ -834,3 +834,11 @@ input,select,textarea{font-size:16px}
 .nav.scrolled{background:rgba(0,0,0,.98)}
 .foot{background:#000}
 .brand em,.foot-brand em{color:#fff!important}
+
+/* logo bordeaux et rouge posé sur un fond blanc */
+.brand img,.foot-brand img{box-sizing:content-box;background:#fff;padding:7px 12px;border-radius:10px}
+.foot-brand img{padding:10px 16px;border-radius:12px}
+.hero-art img{inset:auto;left:50%;top:50%;width:76%;height:auto;transform:translate(-50%,-50%);background:#fff;padding:26px 30px;border-radius:20px;box-sizing:border-box;box-shadow:0 30px 70px -30px rgba(173,6,50,.8),0 0 0 1px rgba(255,255,255,.4)}
+@keyframes floatyC{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,calc(-50% - 12px))}}
+@media (prefers-reduced-motion:no-preference){.hero-art img{animation:floatyC 6s ease-in-out infinite}}
+@media (max-width:480px){.brand img{padding:5px 8px;border-radius:8px}}
