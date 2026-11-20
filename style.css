@@ -769,14 +769,6 @@ a.soc:hover{transform:translateY(-3px);background:var(--blue);border-color:var(-
 .sd-card:hover .sd-ic,.mvv-card:hover .mvv-ic{background:var(--heat);color:#fff;box-shadow:0 10px 24px -10px rgba(173,6,50,.9)}
 /* boutons « aimantés » */
 .btn,.sq-btn{will-change:transform}
-/* rideau de transition entre les pages */
-.curtain{position:fixed;inset:0;z-index:90;pointer-events:none;background:linear-gradient(120deg,#4D0119,#AD0632 55%,#E0204F);transform:scaleY(0);transform-origin:bottom}
-.curtain.in{animation:curtIn .45s cubic-bezier(.7,0,.3,1) forwards}
-.curtain.out{transform:scaleY(1);transform-origin:top;animation:curtOut .55s cubic-bezier(.7,0,.3,1) .05s forwards}
-@keyframes curtIn{to{transform:scaleY(1)}}
-@keyframes curtOut{to{transform:scaleY(0)}}
-.curtain img{position:absolute;left:50%;top:50%;width:min(320px,60vw);transform:translate(-50%,-50%);opacity:0;transition:opacity .2s}
-.curtain.in img,.curtain.out img{opacity:1}
 @media (prefers-reduced-motion:no-preference){
   .it{background-size:200% 100%!important;animation:shimmer 6s linear infinite}
   .p-logo img{animation:bob 4s ease-in-out infinite}
@@ -785,5 +777,5 @@ a.soc:hover{transform:translateY(-3px);background:var(--blue);border-color:var(-
   .p-logo:hover img{animation-play-state:paused}
   .hero-art{transition:transform .2s ease-out}
 }
-@media (prefers-reduced-motion:reduce){.fx-canvas,.cursor-glow,.curtain{display:none!important}}
+@media (prefers-reduced-motion:reduce){.fx-canvas,.cursor-glow{display:none!important}}
 @media (hover:none){.cursor-glow{display:none}}

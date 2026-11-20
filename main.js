@@ -135,14 +135,6 @@
       var art=document.querySelector(".hero-art"),hero=document.querySelector(".hero");
       if(art&&hero){hero.addEventListener("mousemove",function(e){var r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;art.style.transform="translate("+(x*22).toFixed(1)+"px,"+(y*16).toFixed(1)+"px)"});hero.addEventListener("mouseleave",function(){art.style.transform=""})}
     }
-    /* rideau de transition entre les pages */
-    var cur=document.createElement("div");cur.className="curtain";cur.setAttribute("aria-hidden","true");cur.innerHTML='<img src="img/logo-publix360.png" alt="">';document.body.appendChild(cur);
-    try{if(sessionStorage.getItem("p360-curtain")){sessionStorage.removeItem("p360-curtain");cur.classList.add("out");cur.addEventListener("animationend",function(){cur.classList.remove("out")},{once:true})}}catch(e){}
-    document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href]");if(!a||e.defaultPrevented||e.metaKey||e.ctrlKey||e.shiftKey||a.target==="_blank")return;
-      var h=a.getAttribute("href");if(!/^[a-z-]+\.html(#.*)?$/.test(h))return;
-      var cut=h.split("#")[0],here=location.pathname.split("/").pop()||"index.html";if(cut===here)return;
-      e.preventDefault();try{sessionStorage.setItem("p360-curtain","1")}catch(x){}cur.classList.add("in");setTimeout(function(){location.href=h},420)});
-    window.addEventListener("pageshow",function(ev){if(ev.persisted)cur.classList.remove("in")});
   })();
 
   /* partenaires : défilement automatique à partir de 6 logos, sinon rangée centrée */
