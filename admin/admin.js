@@ -171,7 +171,7 @@
   }
   var pdfLibs = null;
   function loadPdfLibs() {
-    if (!pdfLibs) pdfLibs = script("vendor/jspdf.umd.min.js").then(function () { return script("vendor/jspdf.plugin.autotable.min.js"); });
+    if (!pdfLibs) pdfLibs = script("/admin/vendor/jspdf.umd.min.js").then(function () { return script("/admin/vendor/jspdf.plugin.autotable.min.js"); });
     return pdfLibs;
   }
   $("pdf").addEventListener("click", function () {
