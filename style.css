@@ -848,3 +848,9 @@ input,select,textarea{font-size:16px}
 .title-rule::before,.title-rule::after{max-width:180px;height:2px;border-radius:2px}
 .title-rule h2{white-space:nowrap}
 @media (max-width:520px){.title-rule{gap:14px}.title-rule::before,.title-rule::after{max-width:60px}.title-rule h2{white-space:normal}}
+
+/* visionneuse : photo toujours entière, en portrait comme en paysage */
+.lb{height:100vh;height:100dvh}
+.lb-stage{height:100%;min-height:0}
+.lb-stage img{width:auto;height:auto;max-width:calc(100% - 110px);max-height:calc(100vh - 170px);max-height:calc(100dvh - 170px);object-fit:contain}
+@media (max-width:640px){.lb-stage img{max-width:100%;max-height:calc(100dvh - 190px)}.lb-prev,.lb-next{top:auto;bottom:6px;transform:none}}
