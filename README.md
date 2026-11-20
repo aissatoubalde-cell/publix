@@ -12,6 +12,11 @@ En ligne sur **https://publix-alpha.vercel.app** : chaque envoi sur la branche `
 | `img/` | Photos, logos, vidéo |
 | `source/src/` | **Les fichiers de travail** : c'est ici qu'on modifie le site |
 | `source/build.py` | Le programme qui assemble les fichiers de travail en pages finales |
+| `api/` | Fonctions Vercel : inscription à la newsletter et espace admin (base Upstash reliée au projet Vercel) |
+| `admin/` | Espace admin sur **/admin** : liste des inscrits, export PDF, changement du mot de passe (variable `ADMIN_PASSWORD` dans Vercel) |
+| `package.json` | Indique à Vercel le format des fonctions de `api/` (à garder) |
+
+Le formulaire de contact envoie les demandes par Web3Forms (clé publique dans `source/src/main.js`).
 
 `source/` et ce README ne sont pas publiés sur le site (voir `.vercelignore`).
 

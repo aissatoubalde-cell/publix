@@ -1,0 +1,6 @@
+{
+  "name": "publix360",
+  "private": true,
+  "type": "module",
+  "description": "Site Publix 360 : pages HTML statiques + fonctions Vercel dans api/ (newsletter, espace admin)."
+}

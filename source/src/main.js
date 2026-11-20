@@ -17,13 +17,43 @@
   var isEnt=function(){var r=$("profil-ent");return !r||r.checked};
   var sw=$("societe-wrap");
   if(f&&sw){var sync=function(){sw.hidden=!isEnt()};[].forEach.call(f.querySelectorAll('input[name="profil"]'),function(r){r.addEventListener("change",sync)});sync()}
+  /* envoi par Web3Forms (clé publique, elle peut figurer dans la page) ; en cas d'échec, coordonnées affichées */
+  var W3F_KEY="8154048c-4162-4e6a-9283-497e0feac658";
   if(f)f.addEventListener("submit",function(e){
-    e.preventDefault();var m=$("fmsg"),n=$("nom");m.hidden=false;
+    e.preventDefault();var m=$("fmsg"),n=$("nom"),btn=f.querySelector('button[type="submit"]');m.hidden=false;m.classList.remove("ok");
+    if(f.botcheck&&f.botcheck.checked)return;
     if(!n.value.trim()){m.textContent="Indiquez votre nom pour que nous puissions vous répondre.";n.focus();return}
-    var g=function(id){return $(id).value.trim()};
-    var body="Profil : "+(isEnt()?"Entreprise":"Particulier")+"\nNom : "+g("nom")+(isEnt()?"\nEntreprise : "+g("societe"):"")+"\nTéléphone : "+g("tel")+"\nBesoin : "+g("besoin")+"\n\n"+g("projet");
-    m.textContent="Votre messagerie s'ouvre avec la demande prête à envoyer. Sinon, écrivez-nous à infos@publix360.net ou au +224 610 30 00 00.";
-    location.href="mailto:infos@publix360.net?subject="+encodeURIComponent("Demande de projet – "+g("besoin"))+"&body="+encodeURIComponent(body);
+    var g=function(id){return $(id).value.trim()},ent=isEnt();
+    m.textContent="Envoi en cours…";btn.disabled=true;
+    fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({
+      access_key:W3F_KEY,subject:"Demande de projet – "+g("besoin"),from_name:"Site Publix 360",
+      "Profil":ent?"Entreprise":"Particulier","Nom":g("nom"),"Entreprise":ent?g("societe"):"","Téléphone":g("tel"),"Besoin":g("besoin"),"Projet":g("projet")})})
+    .then(function(r){return r.json().catch(function(){return{}}).then(function(d){if(!r.ok||d.success===false)throw new Error(d.message||r.status)})})
+    .then(function(){f.reset();if(sync)sync();m.classList.add("ok");m.textContent="Merci ! Votre demande est envoyée, nous revenons vers vous rapidement."})
+    .catch(function(){m.textContent="L'envoi n'a pas abouti. Réessayez, ou écrivez-nous à infos@publix360.net ou au +224 610 30 00 00."})
+    .then(function(){btn.disabled=false});
+  });
+
+  /* newsletter : enregistrée dans la base du site (api/newsletter), visible sur /admin */
+  var nl=$("nl");
+  if(nl)nl.addEventListener("submit",function(e){
+    e.preventDefault();var m=$("nlmsg"),i=$("nlmail"),btn=nl.querySelector('button[type="submit"]');m.hidden=false;m.classList.remove("ok");
+    var email=i.value.trim(),pn=$("nlname").value.trim();
+    if(!/^\S+@\S+\.\S+$/.test(email)){m.textContent="Saisissez une adresse e-mail valide, par exemple nom@domaine.com.";i.focus();return}
+    var ints=[].slice.call(nl.querySelectorAll(".pick input:checked")).map(function(c){return c.value});
+    m.textContent="Inscription en cours…";btn.disabled=true;
+    fetch("/api/newsletter",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:email,prenom:pn,interets:ints})})
+    .then(function(r){
+      if(r.ok){nl.reset();m.classList.add("ok");m.textContent="Merci ! Votre inscription est enregistrée.";return}
+      if(r.status===429){m.textContent="Trop d'inscriptions depuis cette connexion. Réessayez dans une heure.";return}
+      if(r.status===400){m.textContent="Cette adresse e-mail n'est pas valide.";i.focus();return}
+      if(r.status!==404&&r.status!==503)throw new Error(r.status);
+      /* base pas configurée : l'inscription part par la messagerie du visiteur */
+      m.textContent="Votre messagerie s'ouvre avec l'inscription prête à envoyer à publix360bh@gmail.com.";
+      location.href="mailto:publix360bh@gmail.com?subject="+encodeURIComponent("Inscription newsletter")+"&body="+encodeURIComponent("Bonjour,\n\nMerci d'inscrire "+(pn?pn+" ":"")+"("+email+") à la newsletter Publix 360.\nCentres d'intérêt : "+(ints.join(", ")||"Toutes"));
+    })
+    .catch(function(){m.textContent="L'inscription n'a pas abouti. Réessayez, ou écrivez à publix360bh@gmail.com."})
+    .then(function(){btn.disabled=false});
   });
 
 
