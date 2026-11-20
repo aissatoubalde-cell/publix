@@ -678,3 +678,9 @@ a.soc:hover{transform:translateY(-3px);background:var(--blue);border-color:var(-
 .tmm-close{position:absolute;top:14px;right:14px;z-index:2}
 @media (max-width:760px){.tmm-box{grid-template-columns:1fr;max-height:calc(100vh - 32px);overflow:auto}.tmm-photo{min-height:0;aspect-ratio:4/3}.tmm-body{overflow:visible}}
 @media (prefers-reduced-motion:reduce){.tm-ico::before{animation:none}.tm-modal,.tmm-box{animation:none}}
+
+/* accueil : bienvenue dans le grand bandeau */
+.hero .hero-lead{color:var(--paper);font-weight:600;font-size:clamp(1.02rem,1.5vw,1.15rem);max-width:54ch}
+.hero .hero-more{color:#C9D1DE;font-size:.98rem;line-height:1.7;max-width:62ch}
+.hero .hero-more b{color:var(--paper);font-weight:700}
+@media (prefers-reduced-motion:no-preference){.hero-copy>*:nth-child(4){animation-delay:.36s}}
