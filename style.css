@@ -828,3 +828,9 @@ button[disabled]{opacity:.6;cursor:wait}
 /* champs en 16 px : en dessous, Safari sur iPhone zoome la page dès qu'on touche un champ */
 input,select,textarea{font-size:16px}
 @media (max-width:520px){.nl-card .btn{padding-inline:16px;white-space:nowrap}.nl-card fieldset{gap:8px 6px}.pick span{padding:7px 12px}}
+
+/* logo tout en rouge sur fond noir, slogan en blanc */
+.nav{background:rgba(0,0,0,.96)}
+.nav.scrolled{background:rgba(0,0,0,.98)}
+.foot{background:#000}
+.brand em,.foot-brand em{color:#fff!important}
