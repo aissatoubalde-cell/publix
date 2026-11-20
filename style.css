@@ -734,3 +734,16 @@ a.soc:hover{transform:translateY(-3px);background:var(--blue);border-color:var(-
 }
 @media (max-width:560px){.foot-links{column-gap:22px;row-gap:8px;font-size:.86rem}.foot-contact{gap:9px}}
 .brand em{white-space:nowrap}
+
+/* À propos : identité (présentation officielle) */
+.mvv{padding-block:64px 56px}
+.mvv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.mvv-card{position:relative;display:flex;flex-direction:column;gap:12px;padding:26px 22px;border-radius:20px;background:var(--ink-2);border:1px solid var(--line);min-width:0;transition:border-color .3s,transform .3s}
+.mvv-card:hover{border-color:rgba(210,26,71,.6);transform:translateY(-4px)}
+.mvv-card::before{content:"";position:absolute;left:22px;right:22px;top:0;height:3px;border-radius:0 0 3px 3px;background:var(--heat)}
+.mvv-ic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;background:rgba(210,26,71,.14);color:var(--blue)}
+.mvv-ic svg{width:26px;height:26px}
+.mvv-card h3{font-size:1.2rem}
+.mvv-card p{color:#C7CEDA;font-size:.93rem;line-height:1.65}
+@media (max-width:1060px){.mvv-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.mvv-grid{grid-template-columns:1fr}}
