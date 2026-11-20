@@ -1,0 +1,32 @@
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="ct-intro">
+      <h2>Parlons de vos <span class="it">idées.</span></h2>
+      <p>Vous avez un projet, une ambition, une vision à concrétiser ? Nous sommes là pour vous écouter, vous conseiller et vous accompagner à chaque étape.</p>
+    </div>
+    <form id="f" novalidate>
+      <fieldset class="full who">
+        <legend>Vous êtes</legend>
+        <label class="seg"><input type="radio" name="profil" id="profil-part" value="Particulier"><span>Particulier</span></label>
+        <label class="seg"><input type="radio" name="profil" id="profil-ent" value="Entreprise" checked><span>Entreprise</span></label>
+      </fieldset>
+      <label for="nom">Nom complet<input id="nom" name="nom" autocomplete="name"></label>
+      <label for="societe" id="societe-wrap">Nom de l'entreprise<input id="societe" name="societe" autocomplete="organization"></label>
+      <label for="tel">Téléphone<input id="tel" name="tel" type="tel" autocomplete="tel"></label>
+      <label for="besoin">Besoin
+        <select id="besoin" name="besoin">
+          <option>Stratégie de marque</option>
+          <option>Campagne multicanale</option>
+          <option>Design graphique</option>
+          <option>Marketing digital</option>
+          <option>Événementiel &amp; terrain</option>
+          <option>Production audiovisuelle</option>
+        </select>
+      </label>
+      <label class="full" for="projet">Votre projet<textarea id="projet" name="projet" placeholder="Objectifs, public visé, calendrier…"></textarea></label>
+      <div class="full"><button class="btn btn-hot" type="submit">Envoyer la demande</button></div>
+      <p class="msg full" id="fmsg" hidden></p>
+      <p class="full ct-legal">En envoyant ce formulaire, vous autorisez Publix 360, en sa qualité de responsable de traitement, à traiter et conserver les données personnelles que vous lui communiquez pour répondre à votre demande.</p>
+    </form>
+  </div>
+</section>
