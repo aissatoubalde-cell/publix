@@ -701,10 +701,10 @@ a.soc:hover{transform:translateY(-3px);background:var(--blue);border-color:var(-
 @media (max-width:1240px){.brand em{display:none}}
 
 /* palette du nouveau logo : texte accentué lisible sur fond sombre */
-.it{background:linear-gradient(100deg,#E0204F,#FF5577)!important;-webkit-background-clip:text!important;background-clip:text!important}
+.it{background:linear-gradient(100deg,#E0204F,#FF6F8C 50%,#E0204F)!important;-webkit-background-clip:text!important;background-clip:text!important}
 .btn-hot{box-shadow:0 10px 26px -12px rgba(173,6,50,.95)}
 .hero{background:radial-gradient(80% 90% at 72% 30%,#2A0610 0%,var(--ink) 65%)}
-.about .it{background:linear-gradient(100deg,#7A0322,#AD0632 60%,#D21A47)!important;-webkit-background-clip:text!important;background-clip:text!important}
+.about .it{background:linear-gradient(100deg,#7A0322,#D21A47 50%,#7A0322)!important;-webkit-background-clip:text!important;background-clip:text!important}
 
 /* partenaires : logos en couleur, sans cadre */
 .p-logo{background:transparent!important;border:0!important;box-shadow:none!important;padding:6px 14px;width:190px;height:96px}
@@ -747,3 +747,43 @@ a.soc:hover{transform:translateY(-3px);background:var(--blue);border-color:var(-
 .mvv-card p{color:#C7CEDA;font-size:.93rem;line-height:1.65}
 @media (max-width:1060px){.mvv-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){.mvv-grid{grid-template-columns:1fr}}
+
+/* ===================== EFFETS +  ===================== */
+/* particules lumineuses derrière l'accueil */
+.fx-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.9}
+.hero .wrap,.page-head .wrap{position:relative;z-index:2}
+/* halo qui suit la souris */
+.cursor-glow{position:fixed;left:0;top:0;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(closest-side,rgba(210,26,71,.13),transparent 70%);transform:translate3d(-999px,-999px,0);transition:opacity .4s;mix-blend-mode:screen}
+/* reflet qui parcourt les mots en italique */
+@keyframes shimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+/* traits des titres de section qui se dessinent */
+.title-rule::before,.title-rule::after{transform-origin:right;transition:transform 1s cubic-bezier(.7,0,.2,1)}
+.title-rule::after{transform-origin:left}
+.title-rule.tr-wait::before,.title-rule.tr-wait::after{transform:scaleX(0)}
+/* icônes des services */
+.svc-link>svg{transition:transform .5s cubic-bezier(.3,1.6,.5,1),filter .3s}
+.svc-link:hover>svg{transform:translateY(-6px) rotate(-8deg) scale(1.15);filter:drop-shadow(0 8px 14px rgba(210,26,71,.55))}
+.sd-ic svg,.mvv-ic svg{transition:transform .6s cubic-bezier(.3,1.6,.5,1)}
+.sd-card:hover .sd-ic svg,.mvv-card:hover .mvv-ic svg{transform:rotate(-12deg) scale(1.15)}
+.sd-ic,.mvv-ic{transition:background .3s,box-shadow .3s}
+.sd-card:hover .sd-ic,.mvv-card:hover .mvv-ic{background:var(--heat);color:#fff;box-shadow:0 10px 24px -10px rgba(173,6,50,.9)}
+/* boutons « aimantés » */
+.btn,.sq-btn{will-change:transform}
+/* rideau de transition entre les pages */
+.curtain{position:fixed;inset:0;z-index:90;pointer-events:none;background:linear-gradient(120deg,#4D0119,#AD0632 55%,#E0204F);transform:scaleY(0);transform-origin:bottom}
+.curtain.in{animation:curtIn .45s cubic-bezier(.7,0,.3,1) forwards}
+.curtain.out{transform:scaleY(1);transform-origin:top;animation:curtOut .55s cubic-bezier(.7,0,.3,1) .05s forwards}
+@keyframes curtIn{to{transform:scaleY(1)}}
+@keyframes curtOut{to{transform:scaleY(0)}}
+.curtain img{position:absolute;left:50%;top:50%;width:min(320px,60vw);transform:translate(-50%,-50%);opacity:0;transition:opacity .2s}
+.curtain.in img,.curtain.out img{opacity:1}
+@media (prefers-reduced-motion:no-preference){
+  .it{background-size:200% 100%!important;animation:shimmer 6s linear infinite}
+  .p-logo img{animation:bob 4s ease-in-out infinite}
+  .p-logo:nth-child(2n) img{animation-delay:-2s}
+  @keyframes bob{50%{transform:translateY(-6px)}}
+  .p-logo:hover img{animation-play-state:paused}
+  .hero-art{transition:transform .2s ease-out}
+}
+@media (prefers-reduced-motion:reduce){.fx-canvas,.cursor-glow,.curtain{display:none!important}}
+@media (hover:none){.cursor-glow{display:none}}

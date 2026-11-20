@@ -97,6 +97,54 @@
     document.addEventListener("keydown",function(e){if(md.hidden)return;if(e.key==="Escape")close();if(e.key==="ArrowLeft")show(cur-1);if(e.key==="ArrowRight")show(cur+1)});
   })();
 
+
+  /* ===== EFFETS + ===== */
+  (function(){
+    if(reduceFx)return;
+    var fine=matchMedia("(hover: hover) and (pointer: fine)").matches;
+    /* particules aux couleurs du logo dans l'accueil et les bandeaux */
+    [].forEach.call(document.querySelectorAll(".hero,.page-head"),function(host){
+      var cv=document.createElement("canvas");cv.className="fx-canvas";cv.setAttribute("aria-hidden","true");host.insertBefore(cv,host.firstChild);
+      var cx=cv.getContext("2d"),W,H,dpr=Math.min(window.devicePixelRatio||1,2),pts=[],cols=["255,85,119","210,26,71","173,6,50","255,255,255"];
+      function size(){W=host.clientWidth;H=host.clientHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
+        var n=Math.round(Math.min(70,W*H/16000));pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.4,vx:(Math.random()-.5)*.25,vy:-(Math.random()*.35+.08),c:cols[i%4],a:Math.random()*.6+.2})}
+      size();window.addEventListener("resize",size);
+      var mx=-999,my=-999;host.addEventListener("mousemove",function(e){var r=host.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});host.addEventListener("mouseleave",function(){mx=my=-999});
+      var vis=true;if("IntersectionObserver" in window){new IntersectionObserver(function(es){vis=es[0].isIntersecting}).observe(host)}
+      (function loop(){requestAnimationFrame(loop);if(!vis||document.hidden)return;cx.clearRect(0,0,W,H);
+        for(var i=0;i<pts.length;i++){var p=pts[i];p.x+=p.vx;p.y+=p.vy;if(p.y<-5){p.y=H+5;p.x=Math.random()*W}if(p.x<-5)p.x=W+5;if(p.x>W+5)p.x=-5;
+          var dx=p.x-mx,dy=p.y-my,d=Math.sqrt(dx*dx+dy*dy);if(d<110){p.x+=dx/d*1.2;p.y+=dy/d*1.2}
+          cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.283);cx.fillStyle="rgba("+p.c+","+p.a+")";cx.fill();
+          for(var j=i+1;j<pts.length;j++){var q=pts[j],ex=p.x-q.x,ey=p.y-q.y,e=ex*ex+ey*ey;if(e<9000){cx.strokeStyle="rgba(210,26,71,"+(.16*(1-e/9000))+")";cx.lineWidth=.6;cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);cx.stroke()}}}
+      })();
+    });
+    /* traits des titres qui se dessinent */
+    if("IntersectionObserver" in window){var vh=innerHeight;var to=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove("tr-wait");to.unobserve(e.target)}})},{threshold:.5});
+      [].forEach.call(document.querySelectorAll(".title-rule"),function(t){if(t.getBoundingClientRect().top>vh*.9){t.classList.add("tr-wait");to.observe(t)}})}
+    if(fine){
+      /* halo qui suit la souris */
+      var g=document.createElement("div");g.className="cursor-glow";g.setAttribute("aria-hidden","true");document.body.appendChild(g);
+      var gx=-999,gy=-999,tx=-999,ty=-999;window.addEventListener("mousemove",function(e){tx=e.clientX;ty=e.clientY},{passive:true});
+      (function follow(){gx+=(tx-gx)*.12;gy+=(ty-gy)*.12;g.style.transform="translate3d("+gx+"px,"+gy+"px,0)";requestAnimationFrame(follow)})();
+      /* boutons aimantés */
+      [].forEach.call(document.querySelectorAll(".btn-hot,.btn-line,.sq-btn,.fwa"),function(b){
+        b.addEventListener("mousemove",function(e){var r=b.getBoundingClientRect();b.style.transform="translate("+((e.clientX-r.left-r.width/2)*.18).toFixed(1)+"px,"+((e.clientY-r.top-r.height/2)*.3).toFixed(1)+"px)"});
+        b.addEventListener("mouseleave",function(){b.style.transform=""});
+      });
+      /* logo de l'accueil qui suit légèrement la souris */
+      var art=document.querySelector(".hero-art"),hero=document.querySelector(".hero");
+      if(art&&hero){hero.addEventListener("mousemove",function(e){var r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;art.style.transform="translate("+(x*22).toFixed(1)+"px,"+(y*16).toFixed(1)+"px)"});hero.addEventListener("mouseleave",function(){art.style.transform=""})}
+    }
+    /* rideau de transition entre les pages */
+    var cur=document.createElement("div");cur.className="curtain";cur.setAttribute("aria-hidden","true");cur.innerHTML='<img src="img/logo-publix360.png" alt="">';document.body.appendChild(cur);
+    try{if(sessionStorage.getItem("p360-curtain")){sessionStorage.removeItem("p360-curtain");cur.classList.add("out");cur.addEventListener("animationend",function(){cur.classList.remove("out")},{once:true})}}catch(e){}
+    document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href]");if(!a||e.defaultPrevented||e.metaKey||e.ctrlKey||e.shiftKey||a.target==="_blank")return;
+      var h=a.getAttribute("href");if(!/^[a-z-]+\.html(#.*)?$/.test(h))return;
+      var cut=h.split("#")[0],here=location.pathname.split("/").pop()||"index.html";if(cut===here)return;
+      e.preventDefault();try{sessionStorage.setItem("p360-curtain","1")}catch(x){}cur.classList.add("in");setTimeout(function(){location.href=h},420)});
+    window.addEventListener("pageshow",function(ev){if(ev.persisted)cur.classList.remove("in")});
+  })();
+
   /* partenaires : défilement automatique à partir de 6 logos, sinon rangée centrée */
   var pt=$("ptrack");
   if(pt){var pl=[].slice.call(pt.children);
