@@ -684,3 +684,13 @@ a.soc:hover{transform:translateY(-3px);background:var(--blue);border-color:var(-
 .hero .hero-more{color:#C9D1DE;font-size:.98rem;line-height:1.7;max-width:62ch}
 .hero .hero-more b{color:var(--paper);font-weight:700}
 @media (prefers-reduced-motion:no-preference){.hero-copy>*:nth-child(4){animation-delay:.36s}}
+
+/* nouveau logo PUBLIX360° (format horizontal) */
+.brand img{height:30px;width:auto}
+.nav.scrolled .brand img{height:26px}
+.brand{align-items:center;gap:16px}
+.brand em{padding-bottom:0}
+@media (max-width:1240px){.brand{gap:6px}.brand img{height:26px}}
+@media (max-width:480px){.brand img{height:22px}}
+.foot-brand img{height:38px;width:auto}
+.hero-art img{inset:18% 6%;width:88%;height:64%}
