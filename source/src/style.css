@@ -857,3 +857,4 @@ input,select,textarea{font-size:16px}
 
 /* la visionneuse passe toujours au-dessus des photos */
 .lb{isolation:isolate;transform:translateZ(0)}
+.lb{background:#030407}
