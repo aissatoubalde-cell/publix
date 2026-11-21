@@ -827,3 +827,6 @@ input,select,textarea{font-size:16px}
 /* la visionneuse passe toujours au-dessus des photos */
 .lb{isolation:isolate;transform:translateZ(0)}
 .lb{background:#030407}
+
+/* accueil : logo en écriture blanche sur fond bordeaux (menu et pied de page inchangés) */
+.hero-art img{background:#4D0119;box-shadow:0 30px 70px -30px rgba(173,6,50,.9),0 0 0 1px rgba(255,255,255,.12)}
