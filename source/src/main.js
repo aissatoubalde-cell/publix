@@ -34,27 +34,6 @@
     .then(function(){btn.disabled=false});
   });
 
-  /* newsletter : enregistrée dans la base du site (api/newsletter), visible sur /admin */
-  var nl=$("nl");
-  if(nl)nl.addEventListener("submit",function(e){
-    e.preventDefault();var m=$("nlmsg"),i=$("nlmail"),btn=nl.querySelector('button[type="submit"]');m.hidden=false;m.classList.remove("ok");
-    var email=i.value.trim(),pn=$("nlname").value.trim();
-    if(!/^\S+@\S+\.\S+$/.test(email)){m.textContent="Saisissez une adresse e-mail valide, par exemple nom@domaine.com.";i.focus();return}
-    var ints=[].slice.call(nl.querySelectorAll(".pick input:checked")).map(function(c){return c.value});
-    m.textContent="Inscription en cours…";btn.disabled=true;
-    fetch("/api/newsletter",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:email,prenom:pn,interets:ints})})
-    .then(function(r){
-      if(r.ok){nl.reset();m.classList.add("ok");m.textContent="Merci ! Votre inscription est enregistrée.";return}
-      if(r.status===429){m.textContent="Trop d'inscriptions depuis cette connexion. Réessayez dans une heure.";return}
-      if(r.status===400){m.textContent="Cette adresse e-mail n'est pas valide.";i.focus();return}
-      if(r.status!==404&&r.status!==503)throw new Error(r.status);
-      /* base pas configurée : l'inscription part par la messagerie du visiteur */
-      m.textContent="Votre messagerie s'ouvre avec l'inscription prête à envoyer à publix360bh@gmail.com.";
-      location.href="mailto:publix360bh@gmail.com?subject="+encodeURIComponent("Inscription newsletter")+"&body="+encodeURIComponent("Bonjour,\n\nMerci d'inscrire "+(pn?pn+" ":"")+"("+email+") à la newsletter Publix 360.\nCentres d'intérêt : "+(ints.join(", ")||"Toutes"));
-    })
-    .catch(function(){m.textContent="L'inscription n'a pas abouti. Réessayez, ou écrivez à publix360bh@gmail.com."})
-    .then(function(){btn.disabled=false});
-  });
 
 
   /* ===== effets ===== */

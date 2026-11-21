@@ -780,35 +780,6 @@ a.soc:hover{transform:translateY(-3px);background:var(--blue);border-color:var(-
 @media (prefers-reduced-motion:reduce){.fx-canvas,.cursor-glow{display:none!important}}
 @media (hover:none){.cursor-glow{display:none}}
 
-/* ===== newsletter (accueil) ===== */
-.nlsec{position:relative;overflow:hidden;padding-block:72px;background:radial-gradient(70% 120% at 100% 0%,var(--blue-deep) 0%,transparent 60%),radial-gradient(50% 90% at 0% 100%,rgba(210,26,71,.16) 0%,transparent 70%),var(--ink)}
-.nlsec::before{content:"";position:absolute;right:-160px;top:-160px;width:460px;height:460px;border-radius:50%;border:2px dashed rgba(210,26,71,.35);pointer-events:none}
-.nlsec::after{content:"";position:absolute;right:-90px;top:-90px;width:320px;height:320px;border-radius:50%;border:34px solid transparent;border-bottom-color:rgba(255,85,119,.45);border-left-color:rgba(173,6,50,.45);pointer-events:none}
-.nlsec .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,72px);align-items:center}
-.nl-copy{display:flex;flex-direction:column;gap:18px;min-width:0}
-.nl-copy .eyebrow{font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--orange)}
-.nl-copy h2{font-size:clamp(1.9rem,4vw,3rem)}
-.nl-copy p{color:#C9D1DE;max-width:48ch;font-size:1.04rem}
-.perks{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
-.perks li{display:flex;gap:14px;align-items:flex-start}
-.perks svg{width:22px;height:22px;flex:none;color:var(--orange);margin-top:2px}
-.perks b{display:block;font-weight:700}
-.perks span{color:var(--muted);font-size:.92rem}
-.nl-card{background:var(--ink-2);border:1.5px solid rgba(210,26,71,.55);border-radius:24px;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:16px;box-shadow:0 30px 60px -30px rgba(210,26,71,.45);min-width:0}
-.nl-card h3{grid-column:1/-1;font-size:1.35rem;display:flex;align-items:center;gap:12px}
-.nl-card h3 svg{width:28px;height:28px;color:var(--orange)}
-.nl-card .full{grid-column:1/-1}
-.nl-card fieldset{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;min-width:0}
-.nl-card legend{font-size:.84rem;font-weight:600;color:#C9D1DE;margin-bottom:8px;padding:0}
-.pick{position:relative;display:inline-block}
-.pick input{position:absolute;opacity:0;inset:0;cursor:pointer;width:100%;height:100%;margin:0;padding:0}
-.pick span{display:inline-block;padding:8px 14px;border-radius:999px;border:1px solid var(--line);font-size:.84rem;font-weight:600;color:#C9D1DE;transition:all .15s}
-.pick input:checked+span{background:var(--cool);border-color:transparent;color:#fff}
-.pick input:focus-visible+span{outline:2px solid var(--orange);outline-offset:2px}
-.nl-card .btn{width:100%;justify-content:center}
-.nl-card small{color:var(--muted);font-size:.8rem;line-height:1.45}
-@media (max-width:900px){.nlsec .wrap{grid-template-columns:1fr}}
-@media (max-width:520px){.nl-card{grid-template-columns:1fr;padding:22px}}
 
 /* formulaires : message de réussite, bouton pendant l'envoi, champ anti-robot invisible */
 .msg.ok{color:#4ADE80}
@@ -827,7 +798,6 @@ button[disabled]{opacity:.6;cursor:wait}
 
 /* champs en 16 px : en dessous, Safari sur iPhone zoome la page dès qu'on touche un champ */
 input,select,textarea{font-size:16px}
-@media (max-width:520px){.nl-card .btn{padding-inline:16px;white-space:nowrap}.nl-card fieldset{gap:8px 6px}.pick span{padding:7px 12px}}
 
 /* logo tout en rouge sur fond noir, slogan en blanc */
 .nav{background:rgba(0,0,0,.96)}
